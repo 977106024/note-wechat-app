@@ -29,16 +29,16 @@ Page({
       })
       return
     }
-    this.data.list.push(text)
-    this.setData({
-      list: this.data.list,
-      inputText:''
-    })
     let data = {
-      content:text
+      content: text
     }
     API.add(data).then((res)=>{
       console.log(res)
+      this.data.list.push(text)
+      this.setData({
+        list: this.data.list,
+        inputText: ''
+      })
     })
   },
 

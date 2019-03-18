@@ -1,31 +1,60 @@
 const aomain = require('../utils/config')
 
-//用Promise封装request
-const request = (url,method,data) => {
-  data.token = wx.getStorage({
-    key: 'TOKEN',
-    success: function(res) {
-      return res.data
-    },
+//token
+function getToken(){
+  return new Promise((resolve) => {
+    wx.getStorage({
+      key: 'TOKEN',
+      success: function (res) {
+        resolve(res.data)
+      },
+      fail: function (err) {
+        wx.showToast({
+          title: '请登录！',
+          icon: 'none'
+        })
+      }
+    })
   })
-  return new Promise((resolve,reject)=>{
+}
+
+//promise封装request
+function requestFun(url, method, data){
+  return new Promise((resolve, reject) => {
     wx.request({
-      url:aomain + url,
-      method:method,
-      data:data,
-      header:{
+      url: aomain + url,
+      method: method,
+      data: data,
+      header: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      success(request){
+      success(request) {
         resolve(request.data)
       },
-      fail(error){
+      fail(error) {
         reject(error)
       }
     })
   })
 }
 
+//不登录的接口
+const noLogin = ['weChatApp/login']
+
+//封装request
+const request = async (url,method,data) => {
+  //需要登录的接口
+  for(let item of noLogin){
+    if (url !== item) {
+      await getToken().then((res) => {
+        data.token = res
+      })
+    }
+  }
+  return requestFun(url, method, data)
+}
+
+//接口
 module.exports = {
   request,
   getWxUser(data){
