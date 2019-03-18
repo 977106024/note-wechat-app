@@ -1,21 +1,29 @@
 /**index.wxss**/
-.userinfo {
+#container{
+  padding: 0 20rpx;
+}
+#enter{
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+#enter button{
+  font-size: 30rpx;
+  height: 70rpx;
+}
+#enter input{
+  flex-grow: 1;
+  margin-right: 15rpx;
+  background: #eee;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+#content{
+  padding:30rpx 50rpx 0 50rpx;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+#content .list{
+  display: flex;
+  justify-content: space-between;
 }
-
-.usermotto {
-  margin-top: 200px;
+#content .list .num{
+  color: #ccc;
 }

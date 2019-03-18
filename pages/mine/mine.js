@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     let _this = this
     wx.getStorage({
-      key: 'token',
+      key: 'TOKEN',
       success: function(res) {},
       fail:function(err){
         _this.login()
@@ -32,7 +32,7 @@ Page({
           API.getWxUser(data).then((res) => {
             if(res.code == 200){
               wx.setStorage({
-                key: 'token',
+                key: 'TOKEN',
                 data:res.data.token,
               })
             }

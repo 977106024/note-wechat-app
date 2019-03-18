@@ -24,5 +24,8 @@ module.exports = {
   request,
   getWxUser(data){
     return request('weChatApp/login','get',data)
+  },
+  add(data) {
+    return request('weChatApp/add', 'post', data)
   }
 }
