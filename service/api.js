@@ -2,6 +2,12 @@ const aomain = require('../utils/config')
 
 //用Promise封装request
 const request = (url,method,data) => {
+  data.token = wx.getStorage({
+    key: 'TOKEN',
+    success: function(res) {
+      return res.data
+    },
+  })
   return new Promise((resolve,reject)=>{
     wx.request({
       url:aomain + url,
