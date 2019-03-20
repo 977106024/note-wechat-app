@@ -1,29 +1,28 @@
 /**index.wxss**/
+page{
+  background: #F1F1F1;
+}
 #container{
-  padding: 0 20rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
 }
-#enter{
-  display: flex;
+.header{
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between */
 }
-#enter button{
-  font-size: 30rpx;
+.header input{
   height: 70rpx;
+  border: 2rpx solid #ccc;
+  width: 100%;
+  border-radius: 40rpx;
+  padding: 14rpx 0 14rpx 16rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
 }
-#enter input{
-  flex-grow: 1;
-  margin-right: 15rpx;
-  background: #eee;
-}
-
-#content{
-  padding:30rpx 50rpx 0 50rpx;
-}
-#content .list{
-  display: flex;
-  justify-content: space-between;
-}
-#content .list .num{
-  color: #ccc;
+.header button{
+  width:14%;
+  font-size: 32rpx;
 }

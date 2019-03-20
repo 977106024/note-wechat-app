@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    username:'',//用户名称
+    userAvatar:'', //用户头像
   },
 
   /**
@@ -20,8 +21,15 @@ Page({
         _this.login()
       }
     })
+    // 查看是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          _this.getUser()
+        }
+      }
+    })
   },
-
   login(){
     wx.login({
       success(res) {
@@ -40,13 +48,35 @@ Page({
         }
       }
     })
+    
   },
-
+  // 获取用户信息
+  getUser(){
+    let _this = this;
+    wx.getUserInfo({
+      success(res) {
+        const userInfo = res.userInfo
+        _this.data.username = userInfo.nickName
+        _this.data.userAvatar = userInfo.avatarUrl
+        const gender = userInfo.gender // 性别 0：未知、1：男、2：女
+        const province = userInfo.province
+        const city = userInfo.city
+        const country = userInfo.country
+        console.log(_this.data.userAvatar)
+        _this.setData({
+          username: userInfo.nickName,
+          userAvatar: userInfo.avatarUrl,
+        });
+      }
+    })
+  },
+  bindGetUserInfo(e) {
+    console.log(e.detail.userInfo)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
   },
 
   /**
