@@ -27,7 +27,7 @@ Page({
       success(res) {
         if (res.code) {
           const data = {
-            code: res.code,
+            code: '84848484',
           }
           API.getWxUser(data).then((res) => {
             if(res.code == 200){

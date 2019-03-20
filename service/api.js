@@ -38,10 +38,10 @@ function requestFun(url, method, data){
   })
 }
 
-//不登录的接口
+//不需要token的接口
 const noLogin = ['weChatApp/login']
 
-//封装request
+//封装request async await
 const request = async (url,method,data) => {
   //需要登录的接口
   for(let item of noLogin){
