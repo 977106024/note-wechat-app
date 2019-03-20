@@ -1,14 +1,12 @@
 <!--index.wxml-->
 <view id="container">
-  <view id='enter'>
-    <input placeholder='记点什么吧？' bindinput="getText" value="{{inputText}}" maxlength="15" />
-    <button bindtap='save'>添加</button>
+  <view class='header'>
+    <input placeholder='快速搜索关键字' bindinput="getText" value="{{inputText}}" maxlength="15" />
+    <button bindtap='save'></button>
+    <image src='{{searchImg}}'></image>
   </view>
 
   <view id="content">
-    <view wx:for="{{list}}" class="list" wx:key="index">
-      <view class='num'>{{index}}</view>
-      <view>{{item}}</view>
-    </view>
+
   </view>
 </view>

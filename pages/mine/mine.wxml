@@ -1,3 +1,19 @@
-<view>
-  <input placeholder='输入' />
+<view class='mine'>
+  <image
+    class='avatar'
+    src="{{userAvatar}}">
+    </image>
+  <text class='username'>{{username}}</text>
+  <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<!-- <open-data type="userAvatarUrl"></open-data> -->
+<!-- <open-data type="userNickName"></open-data> -->
+<!-- 需要使用 button 来授权登录 -->
+<!-- <button
+  wx:if="{{canIUse}}"
+  open-type="getUserInfo"
+  bindgetuserinfo="bindGetUserInfo"
+>
+  授权登录
+</button>
+<view wx:else>请升级微信版本</view> -->
 </view>
