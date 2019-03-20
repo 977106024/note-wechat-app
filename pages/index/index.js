@@ -6,14 +6,26 @@ Page({
    */
   data: {
     list:[],
-    inputText:''
+    inputText:'',
+    searchImg:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    // svg图片转换
+    const fileManager = wx.getFileSystemManager();
+    wx.downloadFile({
+      url:
+        'http://ponshr88o.bkt.clouddn.com/search.svg',
+      success: ({ tempFilePath }) => {
+        let fileData = fileManager.readFileSync(tempFilePath, 'base64');
+        this.setData({
+          searchImg: `data:image/svg+xml;base64,${fileData}`
+        });
+      }
+    });
   },
   getText(e){
     this.setData({
