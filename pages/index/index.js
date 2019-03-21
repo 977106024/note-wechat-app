@@ -5,9 +5,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[],
-    inputText:'',
-    searchImg:''
+    // list:[],
+    // inputText:'',
+    searchImg:'',
+    scrollHeight:'', //滚动高度
+    orderList:[
+      {
+      id:1,
+      time:'2019/3/19',
+      content:'和购卡积分累积案例'
+      },
+      {
+        id:2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id:2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      }
+    ]
   },
 
   /**
@@ -32,27 +70,28 @@ Page({
       inputText:e.detail.value
     })
   },
-  save(){
-    let text = this.data.inputText
-    if(text === ''){
-      wx.showToast({
-        title: '请输入内容！',
-        icon:'none'
-      })
-      return
-    }
-    let data = {
-      content: text
-    }
-    API.add(data).then((res)=>{
-      console.log(res)
-      this.data.list.push(text)
-      this.setData({
-        list: this.data.list,
-        inputText: ''
-      })
-    })
-  },
+  // 记点什么
+  // save(){
+  //   let text = this.data.inputText
+  //   if(text === ''){
+  //     wx.showToast({
+  //       title: '请输入内容！',
+  //       icon:'none'
+  //     })
+  //     return
+  //   }
+  //   let data = {
+  //     content: text
+  //   }
+  //   API.add(data).then((res)=>{
+  //     console.log(res)
+  //     this.data.list.push(text)
+  //     this.setData({
+  //       list: this.data.list,
+  //       inputText: ''
+  //     })
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

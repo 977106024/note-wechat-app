@@ -12,10 +12,15 @@
     "backgroundColor": ""
   },
   "tabBar":{
+    "color": "#999",
+    "backgroundColor": "rgb(117, 108, 98)",
+    "selectedColor": "rgb(253, 246, 236)",
+    "borderStyle": "white",
+    "position":"top",
     "list":[
       {
         "pagePath":"pages/index/index",
-        "text":"首页"
+        "text":"记事本"
       },
 
       {
