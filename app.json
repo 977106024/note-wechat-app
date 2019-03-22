@@ -13,18 +13,22 @@
   },
   "tabBar":{
     "color": "#999",
-    "backgroundColor": "rgb(117, 108, 98)",
-    "selectedColor": "rgb(253, 246, 236)",
+    "backgroundColor": "#fdf6ec",
+    "selectedColor": "#e98d3f",
     "borderStyle": "white",
-    "position":"top",
+    "position":"bottom",
     "list":[
       {
         "pagePath":"pages/index/index",
-        "text":"记事本"
+        "text":"记事本",
+        "iconPath": "static/images/note3.png",
+        "selectedIconPath": "static/images/note.png"
       },
 
       {
         "pagePath":"pages/mine/mine",
+        "iconPath": "static/images/my3.png",
+        "selectedIconPath": "static/images/my.png",
         "text":"我的"
       }
     ]

@@ -1,6 +1,6 @@
 /**index.wxss**/
 page{
-  background: rgb(253, 246, 236);
+  background: #ffffff;
 }
 #container{
   width: 100%;
@@ -8,9 +8,12 @@ page{
 /* 头部 */
 .header{
   width: 100%;
-  background: rgb(106, 87, 73);
+  background: #e98d3f;
+  position: fixed;
+  top: 0;
+  left: 0;
   text-align: center;
-  color: #ffffff;
+  color: #fdf6ec;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,11 +28,11 @@ page{
 /* 搜索框 */
 .searchs{
   width: 100%;
-  padding: 0 30rpx;
+  padding: 30rpx;
   box-sizing: border-box;
-  position: relative;
-  background: rgb(253, 246, 236);
-  margin-top: 40rpx;
+  position: fixed;
+  background: #ffffff;
+  top: 98rpx;
   /* display: flex; */
   /* flex-direction: row;
   align-items: center;
@@ -44,7 +47,7 @@ page{
   box-sizing: border-box;
   font-size: 32rpx;
   color:rgb(117, 108, 98); 
-  background: #FFFAFA;
+  background: #ffffff;
 }
 .searchs button{
   border: none;
@@ -52,9 +55,9 @@ page{
   position: absolute;
   width: 60rpx;
   height: 60rpx;
-  right: 40rpx;
-  top: 6rpx;
-  background: #FFFAFA;
+  right: 50rpx;
+  top: 34rpx;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,36 +77,53 @@ button::after {
   width: 100%;
   padding: 40rpx 30rpx 0 30rpx;
   box-sizing: border-box;
+  position: absolute;
+  top: 188rpx;
+  z-index: -9;
 }
 #content scroll-view{
   height: 100%rpx;
 }
 #content .allNote{
   width: 100%;
-  background: rgb(247, 243, 237);
-  padding-left: 60rpx;
+  background: #edc274;
+  padding-left: 40rpx;
   box-sizing: border-box;
   margin-bottom: 40rpx;
-  box-shadow: 6rpx 6rpx 4rpx #ccc;
+  box-shadow: 6rpx 6rpx 8rpx #edc274;
   border-radius: 8rpx;
-  border: 2rpx solid rgb(234,228,216);
+  
 }
 #content .allNote .time{
   font-size: 32rpx;
   color: #c2beb8;
-  background: #FFFAFA;
-  padding: 10rpx 0 10rpx 40rpx;
+  background: #fdf6ec;
+  padding: 8rpx 0 8rpx 40rpx;
   box-sizing: border-box;
-  border-left: 2rpx solid rgb(234,228,216);
-  border-bottom: 2rpx solid rgb(234,228,216);
+  border-bottom: 2rpx solid #e5e0d6;
+
 }
 #content .allNote .myContent{
   width: 100%;
-  font-size: 40rpx;
+  font-size: 34rpx;
   color: rgb(106, 87, 73);
-  background: #FFFAFA;
-  padding: 20rpx 0 20rpx 40rpx;
+  background: #fdf6ec;
+  padding: 10rpx 0 10rpx 40rpx;
   box-sizing: border-box;
-  border-left: 2rpx solid rgb(234,228,216);
+
 }
 /* 内容列表结束 */
+
+.speak{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 40rpx;
+  bottom: 80rpx;
+  border: 6rpx solid #edc274;
+  border-radius: 50%;
+}
+.speak image{
+  width: 100rpx;
+  height: 100rpx;
+}
