@@ -1,28 +1,131 @@
 /**index.wxss**/
 page{
-  background: #F1F1F1;
+  background: #ffffff;
 }
 #container{
-  padding: 0 40rpx;
-  box-sizing: border-box;
+  width: 100%;
 }
+/* 头部 */
 .header{
   width: 100%;
+  background: #e98d3f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #fdf6ec;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:30rpx 0;
+}
+.header text{
+  font-size: 32rpx;
+  flex: 1;
+}
+/* 头部结束 */
+
+/* 搜索框 */
+.searchs{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  position: fixed;
+  background: #ffffff;
+  top: 98rpx;
   /* display: flex; */
   /* flex-direction: row;
   align-items: center;
   justify-content: space-between */
 }
-.header input{
+.searchs input{
   height: 70rpx;
-  border: 2rpx solid #ccc;
+  border: 2rpx solid rgb(234,228,216);
   width: 100%;
   border-radius: 40rpx;
-  padding: 14rpx 0 14rpx 16rpx;
+  padding: 0rpx 0 0rpx 40rpx;
   box-sizing: border-box;
   font-size: 32rpx;
+  color:rgb(117, 108, 98); 
+  background: #ffffff;
 }
-.header button{
-  width:14%;
+.searchs button{
+  border: none;
+  padding: 0;
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 50rpx;
+  top: 34rpx;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+}
+button::after {
+  border: none
+}
+.searchs button image{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 搜索框结束 */
+
+/* 内容列表 */
+#content{
+  width: 100%;
+  padding: 40rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 188rpx;
+  z-index: -9;
+}
+#content scroll-view{
+  height: 100%rpx;
+}
+#content .allNote{
+  width: 98%;
+  background: #edc274;
+  padding-left: 60rpx;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+  box-shadow: 0rpx 6rpx 8rpx #edc274;
+  border-radius: 16rpx;
+  
+}
+#content .allNote .time{
   font-size: 32rpx;
+  color: #c2beb8;
+  background: #fdf6ec;
+  padding: 8rpx 0 8rpx 40rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #e5e0d6;
+  border-radius: 0 16rpx 0 0;
+
+}
+#content .allNote .myContent{
+  width: 100%;
+  font-size: 34rpx;
+  color: rgb(106, 87, 73);
+  background: #fdf6ec;
+  padding: 10rpx 0 10rpx 40rpx;
+  box-sizing: border-box;
+  border-radius: 0 0 16rpx 0;
+
+}
+/* 内容列表结束 */
+
+.speak{
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  right: 20rpx;
+  bottom: 20rpx;
+  border: 5rpx solid rgb(250, 203, 75);
+  border-radius: 50%;
+}
+.speak image{
+  width: 80rpx;
+  height: 80rpx;
 }
