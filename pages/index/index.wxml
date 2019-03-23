@@ -29,7 +29,7 @@
     </scroll-view>
   </view>
   <!-- 全部便签内容结束 -->
-  <view class='speak'>
+  <view class='speak' bindtouchstart='startrecorderHandel' bindtouchend="sendrecorderHandel">
     <image src='../../static/images/speak.png'></image>
   </view>
 </view>

@@ -1,4 +1,41 @@
 const API = require('../../service/api')
+// 录音对象
+const recorderManager = wx.getRecorderManager()
+function sendRecord(src) {
+  var obj = {
+    // 已经在花生壳中映射到本地端口-3001 
+    url: "http://xxx:34306/post",
+    filePath: src,
+    name: "fffile",
+    header: {
+      'Content-Type': 'application/json'
+    },
+    success: function (result) {
+      var data = JSON.parse(result.data);
+      // msg 为最终语音识别的字符串
+      var msg = data.result;
+      // 获取当前页面对象
+      var page = getCurrentPages()[0];
+      page.setData({ msg: msg });
+    },
+    fail: function (err) {
+      console.log(err);
+    }
+  };
+  wx.uploadFile(obj)
+}
+
+// 结束录音的时候触发 
+recorderManager.onStop((res) => {
+  console.log('recorder stop', res)
+  // 获取文件路径-提交到后台-后台发送到百度
+  sendRecord(res.tempFilePath);
+})
+
+recorderManager.onError((res) => {
+  console.log("error", res);
+});
+
 Page({
 
   /**
@@ -9,6 +46,7 @@ Page({
     // inputText:'',
     searchImg:'',
     scrollHeight:'', //滚动高度
+    msg:'',//语音内容
     orderList:[
       {
       id:1,
@@ -30,22 +68,9 @@ Page({
         time: '2019/3/11',
         content: '开发坷拉激发疯狂辣椒'
       },
-      {
-        id: 2,
-        time: '2019/3/11',
-        content: '开发坷拉激发疯狂辣椒'
-      },
-      {
-        id: 2,
-        time: '2019/3/11',
-        content: '开发坷拉激发疯狂辣椒'
-      },
-      {
-        id: 2,
-        time: '2019/3/11',
-        content: '开发坷拉激发疯狂辣椒'
-      }
+
     ]
+
   },
 
   /**
@@ -64,10 +89,27 @@ Page({
         });
       }
     });
+    wx.authorize({
+      scope: 'record'
+    })
   },
-  getText(e){
+  //语音
+  // 按下按钮的时候触发
+  startrecorderHandel() {
+    // 开始录音
+    recorderManager.start({
+    });
+  },
+
+  // 松开按钮的时候触发-发送录音
+  sendrecorderHandel() {
+    // 结束录音
+    recorderManager.stop();
+  },
+
+  getText(e) {
     this.setData({
-      inputText:e.detail.value
+      inputText: e.detail.value
     })
   },
   // 记点什么

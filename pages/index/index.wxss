@@ -85,13 +85,13 @@ button::after {
   height: 100%rpx;
 }
 #content .allNote{
-  width: 100%;
+  width: 98%;
   background: #edc274;
-  padding-left: 40rpx;
+  padding-left: 60rpx;
   box-sizing: border-box;
   margin-bottom: 40rpx;
-  box-shadow: 6rpx 6rpx 8rpx #edc274;
-  border-radius: 8rpx;
+  box-shadow: 0rpx 6rpx 8rpx #edc274;
+  border-radius: 16rpx;
   
 }
 #content .allNote .time{
@@ -101,6 +101,7 @@ button::after {
   padding: 8rpx 0 8rpx 40rpx;
   box-sizing: border-box;
   border-bottom: 2rpx solid #e5e0d6;
+  border-radius: 0 16rpx 0 0;
 
 }
 #content .allNote .myContent{
@@ -110,20 +111,21 @@ button::after {
   background: #fdf6ec;
   padding: 10rpx 0 10rpx 40rpx;
   box-sizing: border-box;
+  border-radius: 0 0 16rpx 0;
 
 }
 /* 内容列表结束 */
 
 .speak{
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   position: fixed;
-  right: 40rpx;
-  bottom: 80rpx;
-  border: 6rpx solid #edc274;
+  right: 20rpx;
+  bottom: 20rpx;
+  border: 5rpx solid rgb(250, 203, 75);
   border-radius: 50%;
 }
 .speak image{
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
