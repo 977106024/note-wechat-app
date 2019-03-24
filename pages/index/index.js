@@ -1,41 +1,6 @@
 const API = require('../../service/api')
 // 录音对象
 const recorderManager = wx.getRecorderManager()
-function sendRecord(src) {
-  var obj = {
-    // 已经在花生壳中映射到本地端口-3001 
-    url: "http://xxx:34306/post",
-    filePath: src,
-    name: "fffile",
-    header: {
-      'Content-Type': 'application/json'
-    },
-    success: function (result) {
-      var data = JSON.parse(result.data);
-      // msg 为最终语音识别的字符串
-      var msg = data.result;
-      // 获取当前页面对象
-      var page = getCurrentPages()[0];
-      page.setData({ msg: msg });
-    },
-    fail: function (err) {
-      console.log(err);
-    }
-  };
-  wx.uploadFile(obj)
-}
-
-// 结束录音的时候触发 
-recorderManager.onStop((res) => {
-  console.log('recorder stop', res)
-  // 获取文件路径-提交到后台-后台发送到百度
-  sendRecord(res.tempFilePath);
-})
-
-recorderManager.onError((res) => {
-  console.log("error", res);
-});
-
 Page({
 
   /**
@@ -91,13 +56,30 @@ Page({
     });
     wx.authorize({
       scope: 'record'
-    })
+    });
+    // wx.request({
+    //   url: 'http://localhost:2333/weChatApp/test',
+    //   success(res) {
+    //     console.log(res)
+    //   }
+    // })
   },
-  //语音
+  //语音---
   // 按下按钮的时候触发
   startrecorderHandel() {
+    //录音配置
+    const options = {
+      duration: 60000,
+    }
     // 开始录音
-    recorderManager.start({
+    recorderManager.start(options)
+    recorderManager.onStart(()=>{
+      console.log('recorder start')
+    });
+
+    //错误
+    recorderManager.onError((res) => {
+      console.log("error", res);
     });
   },
 
@@ -105,14 +87,31 @@ Page({
   sendrecorderHandel() {
     // 结束录音
     recorderManager.stop();
-  },
-
-  getText(e) {
-    this.setData({
-      inputText: e.detail.value
+    recorderManager.onStop(res => {
+      // tempFilePath 是录制的音频文件
+      const { tempFilePath } = res ;
+      console.log(tempFilePath)
+      // 获取文件路径-提交到后台-后台发送到百度
+      wx.uploadFile({
+        url: "http://localhost:2333/weChatApp/uploadFile",
+        filePath: tempFilePath,
+        name: "recorder",
+        success(res) {
+          console.log(res)
+        },
+        fail(err) {
+          console.log(err);
+        }
+      });
     })
   },
-  // 记点什么
+
+ // 记点什么---
+  // getText(e) {
+  //   this.setData({
+  //     inputText: e.detail.value
+  //   })
+  // },
   // save(){
   //   let text = this.data.inputText
   //   if(text === ''){
