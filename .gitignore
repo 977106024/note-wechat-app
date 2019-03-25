@@ -1,0 +1,19 @@
+.DS_Store
+dist/
+hall/
+new/
+kfhall/
+node_modules/
+npm-debug.log
+yarn-error.log
+file/
+project.config.json
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.vscode
+*.zip
