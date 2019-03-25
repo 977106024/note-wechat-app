@@ -1,12 +1,35 @@
 <!--index.wxml-->
 <view id="container">
+  <!-- 头部 -->
   <view class='header'>
-    <input placeholder='快速搜索关键字' bindinput="getText" value="{{inputText}}" maxlength="15" />
-    <button bindtap='save'></button>
-    <image src='{{searchImg}}'></image>
+    <text>全部便签</text>
   </view>
-
+  <!-- 头部结束 -->
+  <!-- 搜索 -->
+  <view class='searchs'>
+    <input placeholder='快速搜索关键字' bindinput="getText" value="{{inputText}}" maxlength="15" />
+    <button bindtap='save'><image src='{{searchImg}}'></image></button>
+  </view>
+  <!-- 搜索结束 -->
+  <!-- 全部便签内容 -->
   <view id="content">
-
+    <scroll-view
+      scroll-y
+      style="{{scrollHeight}}"
+      bindscrolltoupper="upper"
+      bindscrolltolower="lower"
+      bindscroll="scroll"
+      scroll-into-view="{{toView}}"
+      scroll-top="{{scrollTop}}"
+    >
+      <view class="scroll-view-item allNote" wx:for="{{orderList}}"  wx:for-index="index" wx:for-item="item" wx:key='item.id'>
+         <view class='time'>{{item.time}}</view>
+         <view class='myContent'>TIP:{{item.content}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 全部便签内容结束 -->
+  <view class='speak' bindtouchstart='startrecorderHandel' bindtouchend="sendrecorderHandel">
+    <image src='../../static/images/speak.png'></image>
   </view>
 </view>
