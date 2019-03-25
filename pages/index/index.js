@@ -93,7 +93,7 @@ Page({
       console.log(tempFilePath)
       // 获取文件路径-提交到后台-后台发送到百度
       wx.uploadFile({
-        url: "http://localhost:2333/weChatApp/uploadFile",
+        url: "http://192.168.1.113:2333/weChatApp/uploadFile",
         filePath: tempFilePath,
         name: "recorder",
         success(res) {
