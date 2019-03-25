@@ -12,6 +12,7 @@ Page({
     searchImg:'',
     scrollHeight:'', //滚动高度
     msg:'',//语音内容
+    select:1,//动态绑定class
     orderList:[
       {
       id:1,
@@ -25,6 +26,21 @@ Page({
       },
       {
         id:2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
+        time: '2019/3/11',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        id: 2,
         time: '2019/3/11',
         content: '开发坷拉激发疯狂辣椒'
       },
@@ -67,6 +83,7 @@ Page({
   //语音---
   // 按下按钮的时候触发
   startrecorderHandel() {
+
     //录音配置
     const options = {
       duration: 60000,
@@ -81,12 +98,19 @@ Page({
     recorderManager.onError((res) => {
       console.log("error", res);
     });
+
+    this.setData({
+      select: 0
+    });
   },
 
   // 松开按钮的时候触发-发送录音
   sendrecorderHandel() {
     // 结束录音
     recorderManager.stop();
+    this.setData({
+      select: 1
+    });
     recorderManager.onStop(res => {
       // tempFilePath 是录制的音频文件
       const { tempFilePath } = res ;
@@ -103,7 +127,8 @@ Page({
           console.log(err);
         }
       });
-    })
+    });
+   
   },
 
  // 记点什么---

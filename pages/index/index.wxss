@@ -117,15 +117,36 @@ button::after {
 /* 内容列表结束 */
 
 .speak{
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   position: fixed;
-  right: 20rpx;
+  right: 80rpx;
   bottom: 20rpx;
-  border: 5rpx solid rgb(250, 203, 75);
+  background: rgb(221, 105, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
+  /* border: 16rpx solid rgb(249, 179, 130); */
+}
+.borders{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 64rpx;
+  bottom: 4rpx;
+  background: rgb(221, 105, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 16rpx solid rgb(249, 179, 130);
 }
 .speak image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.borders image{
+  width: 60rpx;
+  height: 60rpx;
 }
