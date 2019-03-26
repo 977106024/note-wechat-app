@@ -90,29 +90,27 @@ Page({
     recorderManager.onStop(res => {
       // tempFilePath 是录制的音频文件
       const { tempFilePath } = res ;
-      console.log(tempFilePath)
       // 获取文件路径-提交到后台-后台发送到百度
-      let token
-      wx.getStorage({
-        key: 'TOKEN',
-        success: function (res) {
-          token = res.data
-          wx.uploadFile({
-            url: "http://192.168.1.113:2333/weChatApp/uploadFile",
-            filePath: tempFilePath,
-            name: "recorder",
-            formData: {
-              token: token
-            },
-            success(res) {
-              console.log(res)
-            },
-            fail(err) {
-              console.log(err);
-            }
-          });
-        },
-      })
+      let token = wx.getStorageSync('TOKEN')
+      if(token){
+        wx.uploadFile({
+          url: "http://localhost:2333/weChatApp/uploadFile",
+          filePath: tempFilePath,
+          name: "recorder",
+          header:{
+            "x-access-token": token
+          },
+          success(res) {
+            console.log(res)
+          },
+          fail(err) {
+            console.log(err);
+          }
+        });
+      }else{
+        //登录？还没想清楚
+        // API.login()
+      }
     })
   },
 
