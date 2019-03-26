@@ -92,17 +92,27 @@ Page({
       const { tempFilePath } = res ;
       console.log(tempFilePath)
       // 获取文件路径-提交到后台-后台发送到百度
-      wx.uploadFile({
-        url: "http://192.168.0.104:2333/weChatApp/uploadFile",
-        filePath: tempFilePath,
-        name: "recorder",
-        success(res) {
-          console.log(res)
+      let token
+      wx.getStorage({
+        key: 'TOKEN',
+        success: function (res) {
+          token = res.data
+          wx.uploadFile({
+            url: "http://192.168.1.113:2333/weChatApp/uploadFile",
+            filePath: tempFilePath,
+            name: "recorder",
+            formData: {
+              token: token
+            },
+            success(res) {
+              console.log(res)
+            },
+            fail(err) {
+              console.log(err);
+            }
+          });
         },
-        fail(err) {
-          console.log(err);
-        }
-      });
+      })
     })
   },
 
