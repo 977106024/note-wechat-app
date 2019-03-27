@@ -14,17 +14,17 @@ Page({
     msg:'',//语音内容
     orderList:[
       {
-      id:1,
+
       time:'2019/3/19',
       content:'和购卡积分累积案例'
       },
       {
-        id:2,
+
         time: '2019/3/11',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id:2,
+
         time: '2019/3/11',
         content: '开发坷拉激发疯狂辣椒'
       },
@@ -100,8 +100,21 @@ Page({
           header:{
             "x-access-token": token
           },
-          success(res) {
-            console.log(res)
+          success:res=>{
+            let $res = JSON.parse(res.data)
+            if($res.code == 200){
+              console.log($res.data.msg[0])
+              this.data.orderList.push({ content: $res.data.msg[0] })
+              this.setData({
+                orderList: this.data.orderList
+              });
+              console.log(this.data.orderList)
+            }else{
+              wx.showToast({
+                title: '没有听清！',
+                icon:'none'
+              })
+            }
           },
           fail(err) {
             console.log(err);
