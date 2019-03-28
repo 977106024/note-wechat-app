@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.login()
+    // this.login()
     // 查看是否授权
     // wx.getSetting({
     //   success(res) {
@@ -80,7 +80,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.login()
   },
 
   /**
