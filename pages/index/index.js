@@ -15,17 +15,17 @@ Page({
     select:1,//动态绑定class
     orderList:[
       {
-      id:1,
+
       time:'2019/3/19',
       content:'和购卡积分累积案例'
       },
       {
-        id:2,
+
         time: '2019/3/11',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id:2,
+
         time: '2019/3/11',
         content: '开发坷拉激发疯狂辣椒'
       },
@@ -114,7 +114,7 @@ Page({
     recorderManager.onStop(res => {
       // tempFilePath 是录制的音频文件
       const { tempFilePath } = res ;
-      console.log(tempFilePath)
+
       // 获取文件路径-提交到后台-后台发送到百度
       wx.uploadFile({
         url: "http://192.168.1.113:2333/weChatApp/uploadFile",
@@ -129,7 +129,40 @@ Page({
       });
     });
    
-  },
+      let token = wx.getStorageSync('TOKEN')
+      if(token){
+        wx.uploadFile({
+          url: "http://localhost:2333/weChatApp/uploadFile",
+          filePath: tempFilePath,
+          name: "recorder",
+          header:{
+            "x-access-token": token
+          },
+          success:res=>{
+            let $res = JSON.parse(res.data)
+            if($res.code == 200){
+              console.log($res.data.msg[0])
+              this.data.orderList.push({ content: $res.data.msg[0] })
+              this.setData({
+                orderList: this.data.orderList
+              });
+              console.log(this.data.orderList)
+            }else{
+              wx.showToast({
+                title: '没有听清！',
+                icon:'none'
+              })
+            }
+          },
+          fail(err) {
+            console.log(err);
+          }
+        });
+      }else{
+        //登录？还没想清楚
+        // API.login()
+      }
+    },
 
  // 记点什么---
   // getText(e) {
@@ -208,3 +241,4 @@ Page({
     
   }
 })
+

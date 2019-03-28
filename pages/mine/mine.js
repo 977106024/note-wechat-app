@@ -13,24 +13,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this = this
-    wx.getStorage({
-      key: 'TOKEN',
-      success: function(res) {},
-      fail:function(err){
-        _this.login()
-      }
-    })
+    // this.login()
     // 查看是否授权
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          _this.getUser()
-        }
-      }
-    })
+    // wx.getSetting({
+    //   success(res) {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       this.getUser()
+    //     }
+    //   }
+    // })
   },
   login(){
+    let _this = this
     wx.login({
       success(res) {
         if (res.code) {
@@ -39,10 +33,13 @@ Page({
           }
           API.getWxUser(data).then((res) => {
             if(res.code == 200){
+              //存入缓存token
               wx.setStorage({
                 key: 'TOKEN',
                 data:res.data.token,
               })
+              //获取用户信息
+              _this.getUser()
             }
           })
         }
@@ -83,7 +80,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.login()
   },
 
   /**
