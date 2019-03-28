@@ -110,6 +110,7 @@ Page({
               });
               console.log(this.data.orderList)
             }else{
+              console.log(res)
               wx.showToast({
                 title: '没有听清！',
                 icon:'none'
