@@ -12,25 +12,37 @@ Page({
     searchImg:'',
     scrollHeight:'', //滚动高度
     msg:'',//语音内容
+    select:1,//动态绑定class
     orderList:[
       {
 
-      time:'2019/3/19',
+      time:'2019年3月22日 傍晚5：00',
       content:'和购卡积分累积案例'
       },
       {
 
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
 
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id: 2,
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        time: '2019年3月22日 傍晚5：00',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        time: '2019年3月22日 傍晚5：00',
+        content: '开发坷拉激发疯狂辣椒'
+      },
+      {
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
 
@@ -66,9 +78,18 @@ Page({
 
     API.noteList()
   },
+  // 跳转便签详情
+  todetails:function(e){
+    let content = e.currentTarget.dataset.content; //带参数
+    let time = e.currentTarget.dataset.time;
+    wx.navigateTo({
+      url: '/pages/noteDetail/noteDetail?time='+time+'&content='+content,
+    })
+  },
   //语音---
   // 按下按钮的时候触发
   startrecorderHandel() {
+
     //录音配置
     const options = {
       duration: 60000,
@@ -83,16 +104,37 @@ Page({
     recorderManager.onError((res) => {
       console.log("error", res);
     });
+
+    this.setData({
+      select: 0
+    });
   },
 
   // 松开按钮的时候触发-发送录音
   sendrecorderHandel() {
     // 结束录音
     recorderManager.stop();
+    this.setData({
+      select: 1
+    });
     recorderManager.onStop(res => {
       // tempFilePath 是录制的音频文件
       const { tempFilePath } = res ;
+
       // 获取文件路径-提交到后台-后台发送到百度
+      wx.uploadFile({
+        url: "http://192.168.1.113:2333/weChatApp/uploadFile",
+        filePath: tempFilePath,
+        name: "recorder",
+        success(res) {
+          console.log(res)
+        },
+        fail(err) {
+          console.log(err);
+        }
+      });
+    });
+   
       let token = wx.getStorageSync('TOKEN')
       if(token){
         wx.uploadFile({
@@ -127,8 +169,7 @@ Page({
         //登录？还没想清楚
         // API.login()
       }
-    })
-  },
+    },
 
  // 记点什么---
   // getText(e) {
@@ -207,3 +248,4 @@ Page({
     
   }
 })
+

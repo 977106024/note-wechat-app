@@ -32,11 +32,15 @@ page{
   box-sizing: border-box;
   position: fixed;
   background: #ffffff;
-  top: 98rpx;
+  top: 0rpx;
+  /* top: 98rpx; */
   /* display: flex; */
   /* flex-direction: row;
   align-items: center;
   justify-content: space-between */
+}
+.searchs .place-holder{
+  color: #ccc;
 }
 .searchs input{
   height: 70rpx;
@@ -75,10 +79,11 @@ button::after {
 /* 内容列表 */
 #content{
   width: 100%;
-  padding: 40rpx 30rpx 0 30rpx;
+  padding: 40rpx 40rpx 0 40rpx;
   box-sizing: border-box;
   position: absolute;
-  top: 188rpx;
+  top: 90rpx;
+  /* top: 188rpx; */
   z-index: -9;
 }
 #content scroll-view{
@@ -95,8 +100,9 @@ button::after {
   
 }
 #content .allNote .time{
-  font-size: 32rpx;
-  color: #c2beb8;
+  position: relative;
+   font-size: 30rpx;
+  color: #999;
   background: #fdf6ec;
   padding: 8rpx 0 8rpx 40rpx;
   box-sizing: border-box;
@@ -117,15 +123,36 @@ button::after {
 /* 内容列表结束 */
 
 .speak{
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   position: fixed;
-  right: 20rpx;
+  right: 80rpx;
   bottom: 20rpx;
-  border: 5rpx solid rgb(250, 203, 75);
+  background: rgb(221, 105, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
+  /* border: 16rpx solid rgb(249, 179, 130); */
+}
+.borders{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 64rpx;
+  bottom: 4rpx;
+  background: rgb(221, 105, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 16rpx solid rgb(249, 179, 130);
 }
 .speak image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.borders image{
+  width: 60rpx;
+  height: 60rpx;
 }
