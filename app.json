@@ -1,35 +1,36 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/noteDetail/noteDetail"
+
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
+    "navigationBarTitleText": "记事本",
+    "navigationBarTextStyle": "black",
     "backgroundColor": ""
   },
-  "tabBar":{
+  "tabBar": {
     "color": "#999",
     "backgroundColor": "#fdf6ec",
     "selectedColor": "#e98d3f",
     "borderStyle": "white",
-    "position":"bottom",
-    "list":[
+    "position": "bottom",
+    "list": [
       {
-        "pagePath":"pages/index/index",
-        "text":"记事本",
+        "pagePath": "pages/index/index",
+        "text": "记事本",
         "iconPath": "static/images/note3.png",
         "selectedIconPath": "static/images/note.png"
       },
 
       {
-        "pagePath":"pages/mine/mine",
+        "pagePath": "pages/mine/mine",
         "iconPath": "static/images/my3.png",
         "selectedIconPath": "static/images/my.png",
-        "text":"我的"
+        "text": "我的"
       }
     ]
   }

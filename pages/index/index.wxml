@@ -7,7 +7,7 @@
   <!-- 头部结束 -->
   <!-- 搜索 -->
   <view class='searchs'>
-    <input placeholder='快速搜索关键字' bindinput="getText" value="{{inputText}}" maxlength="15" />
+    <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="getText" value="{{inputText}}" maxlength="15"  />
     <button bindtap='save'><image src='{{searchImg}}'></image></button>
   </view>
   <!-- 搜索结束 -->
@@ -22,9 +22,11 @@
       scroll-into-view="{{toView}}"
       scroll-top="{{scrollTop}}"
     >
-      <view class="scroll-view-item allNote" wx:for="{{orderList}}"  wx:for-index="index" wx:for-item="item" wx:key='item.id'>
-         <view class='time'>{{item.time}}</view>
-         <view class='myContent'>TIP:{{item.content}}</view>
+      <view class="scroll-view-item allNote" bindtap='todetails'  data-time="{{item.time}}" data-content="{{item.content}}" wx:for="{{orderList}}"  wx:for-index="index" wx:for-item="item" wx:key='item.id'>
+        <!-- <navigator hover-class="none" url="/pages/noteDetail/noteDetail?time={{item.time}}&content = {{item.content}}"> -->
+          <view class='time'>{{item.time}}</view>
+          <view class='myContent'>TIP:{{item.content}}</view>
+        <!-- </navigator> -->
       </view>
     </scroll-view>
   </view>

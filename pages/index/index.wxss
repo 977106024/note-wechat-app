@@ -38,6 +38,9 @@ page{
   align-items: center;
   justify-content: space-between */
 }
+.searchs .place-holder{
+  color: #ccc;
+}
 .searchs input{
   height: 70rpx;
   border: 2rpx solid rgb(234,228,216);
@@ -95,8 +98,9 @@ button::after {
   
 }
 #content .allNote .time{
-  font-size: 32rpx;
-  color: #c2beb8;
+  position: relative;
+   font-size: 30rpx;
+  color: #999;
   background: #fdf6ec;
   padding: 8rpx 0 8rpx 40rpx;
   box-sizing: border-box;

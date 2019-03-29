@@ -16,37 +16,33 @@ Page({
     orderList:[
       {
 
-      time:'2019/3/19',
+      time:'2019年3月22日 傍晚5：00',
       content:'和购卡积分累积案例'
       },
       {
 
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
 
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id: 2,
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id: 2,
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id: 2,
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
       {
-        id: 2,
-        time: '2019/3/11',
+        time: '2019年3月22日 傍晚5：00',
         content: '开发坷拉激发疯狂辣椒'
       },
 
@@ -79,6 +75,14 @@ Page({
     //     console.log(res)
     //   }
     // })
+  },
+  // 跳转便签详情
+  todetails:function(e){
+    let content = e.currentTarget.dataset.content; //带参数
+    let time = e.currentTarget.dataset.time;
+    wx.navigateTo({
+      url: '/pages/noteDetail/noteDetail?time='+time+'&content='+content,
+    })
   },
   //语音---
   // 按下按钮的时候触发
