@@ -32,7 +32,8 @@ page{
   box-sizing: border-box;
   position: fixed;
   background: #ffffff;
-  top: 98rpx;
+  top: 0rpx;
+  /* top: 98rpx; */
   /* display: flex; */
   /* flex-direction: row;
   align-items: center;
@@ -78,10 +79,11 @@ button::after {
 /* 内容列表 */
 #content{
   width: 100%;
-  padding: 40rpx 30rpx 0 30rpx;
+  padding: 40rpx 40rpx 0 40rpx;
   box-sizing: border-box;
   position: absolute;
-  top: 188rpx;
+  top: 90rpx;
+  /* top: 188rpx; */
   z-index: -9;
 }
 #content scroll-view{
