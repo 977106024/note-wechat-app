@@ -75,6 +75,8 @@ Page({
     //     console.log(res)
     //   }
     // })
+
+    API.noteList()
   },
   // 跳转便签详情
   todetails:function(e){
@@ -152,6 +154,7 @@ Page({
               });
               console.log(this.data.orderList)
             }else{
+              console.log(res)
               wx.showToast({
                 title: '没有听清！',
                 icon:'none'
