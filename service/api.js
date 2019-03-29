@@ -1,30 +1,18 @@
 const aomain = require('../utils/config')
 
-//token
-function getToken(){
-  return new Promise((resolve) => {
-    wx.getStorage({
-      key: 'TOKEN',
-      success: function (res) {
-        resolve(res.data)
-      },
-      fail: function (err) {
-        wx.showToast({
-          title: '请登录！',
-          icon: 'none'
-        })
-      }
-    })
-  })
-}
+//不需要token的接口
+const noLogin = ['weChatApp/login']
 
-//promise封装request
-function requestFun(url, method, data){
+//封装request
+const request = (url, method, data) => {
   return new Promise((resolve, reject) => {
-    wx.request({
+    let param = data === undefined ? {} : data
+
+    //wx.request请求参数
+    const request = {
       url: aomain + url,
       method: method,
-      data: data,
+      data: param,
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
@@ -34,33 +22,35 @@ function requestFun(url, method, data){
       fail(error) {
         reject(error)
       }
-    })
-  })
-}
-
-//不需要token的接口
-const noLogin = ['weChatApp/login']
-
-//封装request async await
-const request = async (url,method,data) => {
-  //需要登录的接口
-  for(let item of noLogin){
-    if (url !== item) {
-      await getToken().then((res) => {
-        data.token = res
-      })
     }
-  }
-  return requestFun(url, method, data)
+
+    //不需要登录的接口 不带token
+    for (let item of noLogin) {
+      if (url !== item) {
+        let token = wx.getStorageSync('TOKEN')
+        if (token) {
+          request.header["x-access-token"] = token
+        } else {
+          console.log('需要登陆！')
+        }
+      }
+    }
+
+    //发送求情
+    wx.request(request)
+  })
 }
 
 //接口
 module.exports = {
   request,
-  getWxUser(data){
-    return request('weChatApp/login','get',data)
+  getWxUser(data) {
+    return request('weChatApp/login', 'get', data)
   },
   add(data) {
     return request('weChatApp/add', 'post', data)
+  },
+  noteList(data) {
+    return request('weChatApp/noteList', 'get', data)
   }
 }

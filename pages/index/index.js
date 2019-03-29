@@ -63,6 +63,8 @@ Page({
     //     console.log(res)
     //   }
     // })
+
+    API.noteList()
   },
   //语音---
   // 按下按钮的时候触发
