@@ -10,7 +10,7 @@ App({
           const data = {
             code: res.code,
           }
-          API.getWxUser(data).then((res) => {
+          API.login(data).then((res) => {
             if (res.code == 200) {
               wx.setStorage({
                 key: 'TOKEN',

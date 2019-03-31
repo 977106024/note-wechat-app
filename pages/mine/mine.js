@@ -31,7 +31,7 @@ Page({
           const data = {
             code: res.code,
           }
-          API.getWxUser(data).then((res) => {
+          API.login(data).then((res) => {
             if(res.code == 200){
               //存入缓存token
               wx.setStorage({

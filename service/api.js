@@ -17,7 +17,8 @@ const request = (url, method, data) => {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       success(request) {
-        resolve(request.data)
+        let $request = JSON.parse(JSON.stringify(request.data))
+        resolve($request)
       },
       fail(error) {
         reject(error)
@@ -44,13 +45,19 @@ const request = (url, method, data) => {
 //接口
 module.exports = {
   request,
-  getWxUser(data) {
+  //登录
+  login(data) {
     return request('weChatApp/login', 'get', data)
   },
   add(data) {
     return request('weChatApp/add', 'post', data)
   },
+  //便签列表
   noteList(data) {
     return request('weChatApp/noteList', 'get', data)
+  },
+  //删除便签
+  removeNote(data){
+    return request('weChatApp/removeNote', 'post', data)
   }
 }
