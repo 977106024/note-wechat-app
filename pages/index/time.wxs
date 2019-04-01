@@ -1,4 +1,4 @@
-const formatTime = time => {
+var formatTimes = function(time) {
   const date = new Date(parseInt(time) * 1000)
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -9,12 +9,11 @@ const formatTime = time => {
 
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
-
-const formatNumber = n => {
+var formatNumber = function (time) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTimes: formatTimes
 }

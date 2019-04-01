@@ -1,4 +1,5 @@
 const API = require('../../service/api')
+const TIME = require('../../utils/util.js')
 // 录音对象
 const recorderManager = wx.getRecorderManager()
 Page({
@@ -12,7 +13,7 @@ Page({
     searchImg:'',
     scrollHeight:'', //滚动高度
     msg:'',//语音内容
-    select:1,//动态绑定class
+    select:1,//话筒动态绑定class
     orderList:[]
 
   },
@@ -47,9 +48,19 @@ Page({
         // let $res = JSON.parse(JSON.stringify(res)) 
         console.log(res)
         if(res.code == 200){
+         
+          res.data.result.map(item=>{
+            this.data.orderList.push({
+              _id:item._id,
+              content : item.content,
+              createdTime: item.createdTime,
+              // TIME.formatTime(item.createdTime)
+            })
+          })
           this.setData({
-            orderList: res.data.result,
+            orderList: this.data.orderList,
           });
+          console.log(this.data.orderList)
         }
 
     })
@@ -65,7 +76,11 @@ Page({
   //语音---
   // 按下按钮的时候触发
   startrecorderHandel() {
-
+    // 录音按钮改变class
+    this.setData({
+      select: 0,
+    })
+    this.data.select == 0
     //录音配置
     const options = {
       duration: 60000,
@@ -84,6 +99,10 @@ Page({
 
   // 松开按钮的时候触发-发送录音
   sendrecorderHandel() {
+    // 录音按钮改变class
+    this.setData({
+      select:1,
+    })
     // 结束录音
     recorderManager.stop();
     recorderManager.onStop(res => {
@@ -94,7 +113,7 @@ Page({
       let token = wx.getStorageSync('TOKEN')
       if (token) {
         wx.uploadFile({
-          url: "http://localhost:2333/weChatApp/uploadFile",
+          url: "http://192.168.1.56:2333/weChatApp/uploadFile",
           filePath: tempFilePath,
           name: "recorder",
           header: {
