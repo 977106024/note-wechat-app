@@ -1,5 +1,5 @@
 const API = require('../../service/api')
-const TIME = require('../../utils/util.js')
+const TIME = require('../../utils/util')
 // 录音对象
 const recorderManager = wx.getRecorderManager()
 Page({
@@ -43,28 +43,27 @@ Page({
     //     console.log(res)
     //   }
     // })
-      // 首页列表
-      API.noteList().then(res=>{
-        // let $res = JSON.parse(JSON.stringify(res)) 
-        console.log(res)
-        if(res.code == 200){
-         
-          res.data.result.map(item=>{
-            this.data.orderList.push({
-              _id:item._id,
-              content : item.content,
-              createdTime: item.createdTime,
-              // TIME.formatTime(item.createdTime)
-            })
+  },
+  // 首页数据
+  list(){
+    API.noteList().then(res => {
+      if (res.code == 200) {
+        res.data.result.map(item => {
+          this.data.orderList.push({
+            _id: item._id,
+            content: item.content,
+            createdTime: item.createdTime,
+            // TIME.formatTime(item.createdTime)
           })
-          this.setData({
-            orderList: this.data.orderList,
-          });
-          console.log(this.data.orderList)
-        }
-
+        })
+        this.setData({
+          orderList: this.data.orderList,
+        });
+        console.log(this.data.orderList)
+      }
     })
   },
+
   // 跳转便签详情
   todetails:function(e){
     let content = e.currentTarget.dataset.content; //带参数
@@ -113,7 +112,7 @@ Page({
       let token = wx.getStorageSync('TOKEN')
       if (token) {
         wx.uploadFile({
-          url: "http://192.168.1.56:2333/weChatApp/uploadFile",
+          url: "http://localhost:2333/weChatApp/uploadFile",
           filePath: tempFilePath,
           name: "recorder",
           header: {
@@ -191,7 +190,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    API.removeNote()
+    // API.removeNote()
+    this.list()
   },
 
   /**

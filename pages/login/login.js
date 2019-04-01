@@ -21,6 +21,9 @@ Page({
                 key: 'TOKEN',
                 data: res.data.token,
               })
+              wx.navigateBack({
+                delta:1
+              })
             }
           })
         }
