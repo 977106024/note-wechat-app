@@ -133,7 +133,7 @@ Page({
                 orderList: this.data.orderList
               });
               console.log(this.data.orderList)
-            } else {
+            } else if($res.code === -200) {
               console.log(res)
               wx.showToast({
                 title: '没有听清！',
