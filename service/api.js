@@ -18,6 +18,10 @@ const request = (url, method, data) => {
       },
       success(request) {
         let $request = JSON.parse(JSON.stringify(request.data))
+        if ($request.code === -200){
+          console.log($request)
+          return
+        }
         resolve($request)
       },
       fail(error) {
