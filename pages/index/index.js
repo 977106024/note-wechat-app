@@ -15,12 +15,12 @@ Page({
     msg:'',//语音内容
     select:1,//话筒动态绑定class
     orderList: [{
-      createdtTime: parseInt(Date.now / 1000),
+      createdTime: parseInt(Date.now() / 1000),
       content: "欢迎使用小程序便签",
       _id: 0
     },
     {
-      createdtTime: parseInt(Date.now / 1000),
+      createdTime: parseInt(Date.now() / 1000),
       content: "在这-------------------------------------------------------------------------------------------记录一切^_^",
       _id: 1
     }]
