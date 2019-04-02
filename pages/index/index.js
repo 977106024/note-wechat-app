@@ -14,7 +14,16 @@ Page({
     scrollHeight:'', //滚动高度
     msg:'',//语音内容
     select:1,//话筒动态绑定class
-    orderList:[]
+    orderList: [{
+      createdtTime: parseInt(Date.now / 1000),
+      content: "欢迎使用小程序便签",
+      _id: 0
+    },
+    {
+      createdtTime: parseInt(Date.now / 1000),
+      content: "在这-------------------------------------------------------------------------------------------记录一切^_^",
+      _id: 1
+    }]
 
   },
 
@@ -105,6 +114,7 @@ Page({
     // 结束录音
     recorderManager.stop();
     recorderManager.onStop(res => {
+      console.log('recorder stop')
       // tempFilePath 是录制的音频文件
       const { tempFilePath } = res ;
 
@@ -112,7 +122,7 @@ Page({
       let token = wx.getStorageSync('TOKEN')
       if (token) {
         wx.uploadFile({
-          url: "http://localhost:2333/weChatApp/uploadFile",
+          url: "http://192.168.1.113:2333/weChatApp/uploadFile",
           filePath: tempFilePath,
           name: "recorder",
           header: {
@@ -121,7 +131,6 @@ Page({
           success: res => {
             let $res = JSON.parse(res.data)
             if ($res.code == 200) {
-              console.log($res.data)
               let result = $res.data.result
               this.data.orderList.push({
                 _id: result._id,
@@ -131,7 +140,6 @@ Page({
               this.setData({
                 orderList: this.data.orderList
               });
-              console.log(this.data.orderList)
             } else if($res.code === -200) {
               console.log(res)
               wx.showToast({
@@ -145,8 +153,10 @@ Page({
           }
         });
       } else {
-        //登录？还没想清楚
-        // API.login()
+        //登录
+        wx.navigateTo({
+          url: '../login/login',
+        })
       }
     });
     },
