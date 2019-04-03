@@ -88,6 +88,14 @@ Page({
     this.setData({
       select: 0,
     })
+    //判断是否登录
+    let token = wx.getStorageSync('TOKEN')
+    if (!token) {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+
     this.data.select == 0
     //录音配置
     const options = {
@@ -152,11 +160,6 @@ Page({
             console.log(err);
           }
         });
-      } else {
-        //登录
-        wx.navigateTo({
-          url: '../login/login',
-        })
       }
     });
     },

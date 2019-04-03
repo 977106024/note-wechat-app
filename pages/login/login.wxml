@@ -1,4 +1,4 @@
 <!-- 登录 -->
 <view id='login'>
-  <button bindtap='login'>一键登录</button>
+  <button bindtap='login' type='primary'>一键登录</button>
 </view>
