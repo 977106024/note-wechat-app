@@ -66,6 +66,10 @@ module.exports = {
   noteList(data) {
     return request('weChatApp/noteList', 'get', data)
   },
+  // 更新便签
+  updateNote(data){
+    return request('weChatApp/editNote', 'post', data)
+  },
   //删除便签
   removeNote(data){
     return request('weChatApp/removeNote', 'post', data)
