@@ -87,7 +87,7 @@ button::after {
   z-index: -9;
 }
 #content scroll-view{
-  height: 100%rpx;
+  height: 100%;
 }
 #content .allNote{
   width: 98%;

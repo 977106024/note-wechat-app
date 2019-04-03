@@ -57,16 +57,16 @@ Page({
   list(){
     API.noteList().then(res => {
       if (res.code == 200) {
-        res.data.result.map(item => {
-          this.data.orderList.push({
-            _id: item._id,
-            content: item.content,
-            createdTime: item.createdTime,
-            // TIME.formatTime(item.createdTime)
-          })
-        })
+        // res.data.result.map(item => {
+        //   this.data.orderList.push({
+        //     _id: item._id,
+        //     content: item.content,
+        //     createdTime: item.createdTime,
+        //     // TIME.formatTime(item.createdTime)
+        //   })
+        // })
         this.setData({
-          orderList: this.data.orderList,
+          orderList: res.data.result,
         });
         console.log(this.data.orderList)
       }
@@ -77,8 +77,9 @@ Page({
   todetails:function(e){
     let content = e.currentTarget.dataset.content; //带参数
     let time = e.currentTarget.dataset.time;
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/noteDetail/noteDetail?time='+time+'&content='+content,
+      url: '/pages/noteDetail/noteDetail?time=' + time + '&content=' + content + '&id=' + id,
     })
   },
   //语音---
@@ -122,7 +123,7 @@ Page({
       let token = wx.getStorageSync('TOKEN')
       if (token) {
         wx.uploadFile({
-          url: "http://192.168.1.113:2333/weChatApp/uploadFile",
+          url: "http://192.168.1.56:2333/weChatApp/uploadFile",
           filePath: tempFilePath,
           name: "recorder",
           header: {

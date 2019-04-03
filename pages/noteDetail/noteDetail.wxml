@@ -1,11 +1,16 @@
 <view class='container'>
   <view class='header'>
     <text class='time'>{{time}}</text>
-    <image src='../../static/images/bianqian.png'></image>
+    <image wx-if="{{noteIcon == true}}" src='../../static/images/bianqian.png'></image>
+    <!-- 提交按钮 -->
+    <block wx-if="{{completeIcon == true}}">
+      <icon bindtap="editNote" type="success_no_circle" size="20" color="orange" />
+    </block>
   </view>
+  <!-- 编辑内容 -->
   <view class='content'>
-  <textarea 
-    value="{{content}}"
-  />
+    <textarea 
+      value="{{content}}" bindfocus="upFocus" bindinput="valueChange"
+    />
   </view>
 </view>
