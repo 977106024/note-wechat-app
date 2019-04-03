@@ -18,8 +18,10 @@ const request = (url, method, data) => {
       },
       success(request) {
         let $request = JSON.parse(JSON.stringify(request.data))
-        if ($request.code === -200){
-          console.log($request)
+        if ($request.code === 400){
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
           return
         }
         resolve($request)
@@ -36,7 +38,11 @@ const request = (url, method, data) => {
         if (token) {
           request.header["x-access-token"] = token
         } else {
-          console.log('需要登陆！')
+          // console.log('需要登陆！')
+          // wx.navigateTo({
+          //   url: '/pages/login/login',
+          // })
+          return
         }
       }
     }

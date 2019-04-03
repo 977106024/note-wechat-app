@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<wxs src="time.wxs" module="time"></wxs>
+<wxs src="../../utils/time.wxs" module="time"/>
 <view id="container">
   <!-- 头部 -->
   <!-- <view class='header'>
@@ -25,8 +25,7 @@
     >
       <view class="scroll-view-item allNote" bindtap='todetails'  data-time="{{item.createdTime}}" data-content="{{item.content}}" wx:for="{{orderList}}"  wx:for-index="index" wx:for-item="item" wx:key='item._id'>
         <!-- <navigator hover-class="none" url="/pages/noteDetail/noteDetail?time={{item.time}}&content = {{item.content}}"> -->
-          <view class='time'>{{item.createdTime}}</view>
-
+          <view class='time'>{{time.formatTimes(item.createdTime)}}</view>
           <view class='myContent'>TIP:{{item.content}}</view>
         <!-- </navigator> -->
       </view>
