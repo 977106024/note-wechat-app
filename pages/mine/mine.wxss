@@ -2,16 +2,47 @@
   width: 750rpx;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  padding-left: 40rpx;
+  box-sizing: border-box;
 }
-.username{
+.mine .name{
   width: 100%;
-  font-size: 32rpx;
+  font-size: 36rpx;
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  color: #333;
 }
-.avatar{
-  width: 100rpx;
-  height: 100rpx;
+
+.mine .avatar{
+  overflow:hidden; 
+  display: block;
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 20rpx;
   border-radius: 50%;
+
+}
+.null{
+  width: 100%;
+  height: 40rpx;
   margin-top: 30rpx;
+  background: #fdf6ec;
+}
+.content{
+  width: 100%;
+  margin-top: 30rpx;
+  padding-left: 40rpx;
+  color: #999;
+  
+}
+.content .list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.content image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
 }
