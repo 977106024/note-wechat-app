@@ -115,7 +115,7 @@ button::after {
   font-size: 34rpx;
   color: rgb(106, 87, 73);
   background: #fdf6ec;
-  padding: 10rpx 0 10rpx 40rpx;
+  padding: 10rpx 40rpx;
   box-sizing: border-box;
   border-radius: 0 0 16rpx 0;
 

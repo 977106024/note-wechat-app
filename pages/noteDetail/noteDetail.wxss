@@ -24,10 +24,17 @@
   margin-top: 20rpx;
 }
 .container .content textarea{
-  width: 100%;
+  width: 90%;
   height: 900rpx;
   color:rgb(106, 87, 73);
   text-align: left;
   font-size: 34rpx;
   line-height: 46rpx;
+}
+.container .deteleN{
+  width:  60rpx;
+  height: 60rpx;
+  position: fixed;
+  right: 40rpx;
+  bottom: 80rpx;
 }
