@@ -38,7 +38,7 @@ const request = (url, method, data) => {
         if (token) {
           request.header["x-access-token"] = token
         } else {
-          // console.log('需要登陆！')
+          console.log('需要登陆！')
           // wx.navigateTo({
           //   url: '/pages/login/login',
           // })

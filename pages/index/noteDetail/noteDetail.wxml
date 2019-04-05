@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='header'>
+    <text class='time'>{{time}}</text>
+    <image wx-if="{{noteIcon == true}}" src='../../static/images/bianqian.png'></image>
+    <!-- 提交按钮 -->
+    <block wx-if="{{completeIcon == true}}">
+      <icon bindtap="editNote" type="success_no_circle" size="20" color="orange" />
+    </block>
+  </view>
+  <!-- 编辑内容 -->
+  <view class='content'>
+    <textarea 
+      value="{{content}}" bindfocus="upFocus" bindinput="valueChange" disabled='{{disabled}}'
+    />
+  </view>
+  <image bindtap='deleteNote' class='deteleN' src='../../static/images/huishou.png'></image>
+  <!-- 确认删除模态框 -->
+  <modal hidden="{{hidden}}" title="确定删除吗？" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+  </modal>
+</view>
