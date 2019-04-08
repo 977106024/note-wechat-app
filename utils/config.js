@@ -1,4 +1,4 @@
 
-const aomain = 'http://192.168.1.56:2333/'
+const aomain = 'http://api.xuewuzhijing.top:2333'
 
 module.exports = aomain
