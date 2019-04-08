@@ -31,8 +31,8 @@
 }
 .content{
   width: 100%;
-  margin-top: 30rpx;
-  padding-left: 40rpx;
+  padding:0 40rpx;
+  box-sizing: border-box;
   color: #999;
   
 }
@@ -42,7 +42,15 @@
   align-items: center;
 }
 .content image{
-  width: 60rpx;
-  height: 60rpx;
-  margin-right: 10rpx;
+  width: 50rpx;
+  height: 55rpx;
+  margin-right: 20rpx;
+}
+.content .list text{
+  display: block;
+  width: 100%;
+  font-size: 32rpx;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  border-bottom: 4rpx solid #fdf6ec;
 }
