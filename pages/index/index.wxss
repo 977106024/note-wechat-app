@@ -90,14 +90,14 @@ button::after {
   height: 100%;
 }
 #content .allNote{
-  width: 98%;
+  /* width: 98%; */
   background: #edc274;
   padding-left: 60rpx;
   box-sizing: border-box;
+  margin-top: 20rpx;
   margin-bottom: 40rpx;
   box-shadow: 0rpx 6rpx 8rpx #edc274;
   border-radius: 16rpx;
-  
 }
 #content .allNote .time{
   position: relative;
@@ -111,7 +111,7 @@ button::after {
 
 }
 #content .allNote .myContent{
-  width: 100%;
+  /* width: 100%; */
   font-size: 34rpx;
   color: rgb(106, 87, 73);
   background: #fdf6ec;

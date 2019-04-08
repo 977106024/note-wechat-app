@@ -16,12 +16,12 @@ Page({
     select:1,//话筒动态绑定class
     orderList: [{
       createdTime: parseInt(Date.now() / 1000),
-      content: "欢迎使用小程序便签",
+      content: "欢迎使用语音便签",
       _id: 0
     },
     {
       createdTime: parseInt(Date.now() / 1000),
-      content: "在这-------------------------------------------------------------------------------------------记录一切^_^",
+      content: "按下语音-------------------------------------------------------------------------------------------记录一切^_^",
       _id: 1
     }]
 
@@ -89,6 +89,14 @@ Page({
     this.setData({
       select: 0,
     })
+    //判断是否登录
+    let token = wx.getStorageSync('TOKEN')
+    if (!token) {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+
     this.data.select == 0
     //录音配置
     const options = {
@@ -153,11 +161,6 @@ Page({
             console.log(err);
           }
         });
-      } else {
-        //登录
-        wx.navigateTo({
-          url: '../login/login',
-        })
       }
     });
     },
