@@ -43,7 +43,7 @@
 }
 .content image{
   width: 50rpx;
-  height: 55rpx;
+  height: 50rpx;
   margin-right: 20rpx;
 }
 .content .list text{

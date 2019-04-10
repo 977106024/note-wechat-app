@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/index/noteDetail/noteDetail",
     "pages/mine/mine",
-    "pages/login/login"
-
+    "pages/login/login",
+    "pages/textExtraction/textExtraction"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +26,13 @@
         "iconPath": "static/images/note3.png",
         "selectedIconPath": "static/images/note.png"
       },
-
+     
+      {
+        "pagePath": "pages/textExtraction/textExtraction",
+        "iconPath": "static/images/shibie1.png",
+        "selectedIconPath": "static/images/shibie.png",
+        "text": "识别"
+      },
       {
         "pagePath": "pages/mine/mine",
         "iconPath": "static/images/my3.png",
