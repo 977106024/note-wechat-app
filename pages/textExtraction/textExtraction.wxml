@@ -1,0 +1,7 @@
+<!--pages/textExtraction/textExtraction.wxml.wxml-->
+<view class='textExtraction'>
+  <view class='upload'>
+  <image src='{{upImage}}'></image>
+  </view>
+  <button class='upBtn' bindtap='upImg'>上传</button>
+</view>

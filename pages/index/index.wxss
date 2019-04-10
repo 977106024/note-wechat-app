@@ -118,7 +118,12 @@ button::after {
   padding: 10rpx 40rpx;
   box-sizing: border-box;
   border-radius: 0 0 16rpx 0;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;  
 }
 /* 内容列表结束 */
 

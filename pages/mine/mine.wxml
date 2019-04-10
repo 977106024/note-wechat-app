@@ -7,6 +7,6 @@
 <view class='content'>
   <view class='list'>
     <image src='../../static/images/mineNote.png'></image>
-    <text>记事本 (10)</text>
+    <text>记事本 ({{result}})</text>
   </view>
 </view>
