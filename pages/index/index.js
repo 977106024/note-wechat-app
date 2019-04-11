@@ -131,7 +131,7 @@ Page({
       let token = wx.getStorageSync('TOKEN')
       if (token) {
         wx.uploadFile({
-          url: "http://localhost:2333/weChatApp/uploadFile",
+          url: "http://192.168.1.113:2333/weChatApp/uploadFile",
           filePath: tempFilePath,
           name: "recorder",
           header: {
