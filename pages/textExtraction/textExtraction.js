@@ -15,13 +15,13 @@ Page({
 
   },
   //点击选择图片
-  upImg(){
+  previewImg(){
     var _this = this
     wx.chooseImage({
       count: 1,
       sizeType: [ 'compressed'],
       sourceType: ['camera'],
-      success(res) {
+      success:res => {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths)
@@ -29,18 +29,29 @@ Page({
           upImage: tempFilePaths[0]
         })
 
-        const uploadTask = wx.uploadFile({
-          url: 'http://localhost:2333/weChatApp/upImgFile',
-          filePath: tempFilePaths[0],
-          name: 'imgfile',
-          success: function (res) {
-            console.log(res.data)
-          }
-        })
-        // uploadTask.abort()
+        this.upImg(tempFilePaths[0])
 
       }
     })
+  },
+  upImg(file){
+    let token = wx.getStorageSync('TOKEN')
+    if (token) {
+      wx.uploadFile({
+        url: 'http://localhost:2333/weChatApp/upImgFile',
+        filePath: file,
+        name: 'imgfile',
+        header: {
+          "x-access-token": token
+        },
+        success: function (res) {
+          console.log(res.data)
+        }
+      })
+    } else {
+      //登陆
+      
+    }
   },
 
   /**

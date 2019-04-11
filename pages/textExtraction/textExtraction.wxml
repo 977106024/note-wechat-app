@@ -3,5 +3,5 @@
   <view class='upload'>
   <image src='{{upImage}}'></image>
   </view>
-  <button class='upBtn' bindtap='upImg'>上传</button>
+  <button class='upBtn' bindtap='previewImg'>上传</button>
 </view>
