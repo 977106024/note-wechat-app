@@ -1,7 +1,11 @@
 <!--pages/textExtraction/textExtraction.wxml.wxml-->
 <view class='textExtraction'>
   <view class='upload'>
-  <image src='{{upImage}}'></image>
+    <!-- <image src='../../static/images/identity2.png'></image> -->
+    <image src='{{upImage}}'></image>
+    <view class='photo' wx:if="{{isPhoto}}">
+      <image src='../../static/images/photograph.png'></image>
+    </view>
   </view>
-  <button class='upBtn' bindtap='previewImg'>上传</button>
+  <button class='upBtn' bindtap='previewImg'>上传识别身份证</button>
 </view>

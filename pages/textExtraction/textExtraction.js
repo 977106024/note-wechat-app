@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    upImage:'',//图片
+    upImage:'../../static/images/identity2.png',//图片
+    isPhoto:true,
   },
 
   /**
@@ -26,32 +27,27 @@ Page({
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths)
         _this.setData({
-          upImage: tempFilePaths[0]
+          upImage: tempFilePaths[0],
+          isPhoto: false,
         })
+        let token = wx.getStorageSync('TOKEN')
+        const uploadTask = wx.uploadFile({
+          url: 'http://192.168.1.113:2333/weChatApp/upImgFile',
+          filePath: tempFilePaths[0],
+          name: 'imgfile',
+          header: {
+            "x-access-token": token
+          },
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+        // uploadTask.abort()
 
         this.upImg(tempFilePaths[0])
 
       }
     })
-  },
-  upImg(file){
-    let token = wx.getStorageSync('TOKEN')
-    if (token) {
-      wx.uploadFile({
-        url: 'http://localhost:2333/weChatApp/upImgFile',
-        filePath: file,
-        name: 'imgfile',
-        header: {
-          "x-access-token": token
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-    } else {
-      //登陆
-      
-    }
   },
 
   /**

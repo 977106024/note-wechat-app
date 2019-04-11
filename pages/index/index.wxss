@@ -127,7 +127,7 @@ button::after {
 }
 /* 内容列表结束 */
 
-.speak{
+#container .speak{
   width: 100rpx;
   height: 100rpx;
   position: fixed;
@@ -138,9 +138,8 @@ button::after {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  /* border: 16rpx solid rgb(249, 179, 130); */
 }
-.borders{
+#container .borders{
   width: 100rpx;
   height: 100rpx;
   position: fixed;
