@@ -16,13 +16,13 @@ Page({
 
   },
   //点击选择图片
-  upImg(){
+  previewImg(){
     var _this = this
     wx.chooseImage({
       count: 1,
       sizeType: [ 'compressed'],
       sourceType: ['camera'],
-      success(res) {
+      success:res => {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths)
@@ -43,6 +43,8 @@ Page({
           }
         })
         // uploadTask.abort()
+
+        this.upImg(tempFilePaths[0])
 
       }
     })
