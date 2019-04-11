@@ -28,6 +28,17 @@ Page({
         _this.setData({
           upImage: tempFilePaths[0]
         })
+
+        const uploadTask = wx.uploadFile({
+          url: 'http://localhost:2333/weChatApp/upImgFile',
+          filePath: tempFilePaths[0],
+          name: 'imgfile',
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+        // uploadTask.abort()
+
       }
     })
   },
