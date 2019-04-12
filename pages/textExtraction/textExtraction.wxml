@@ -8,4 +8,13 @@
     </view>
   </view>
   <button class='upBtn' bindtap='previewImg'>上传图片提取文字</button>
+  <view class='wordInfo'>
+    <view class='title'>
+      <image src='../../static/images/title.png'></image>
+      <text>提取结果</text>
+    </view>
+    <view wx:for="{{allInfo}}" wx:for-index="index" wx:for-item="item" wx:key='index' class='words'>
+      <view>{{item.words}}</view>
+    </view>
+  </view>
 </view>
