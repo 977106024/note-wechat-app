@@ -7,5 +7,5 @@
       <image src='../../static/images/photograph.png'></image>
     </view>
   </view>
-  <button class='upBtn' bindtap='previewImg'>上传识别身份证</button>
+  <button class='upBtn' bindtap='previewImg'>上传图片提取文字</button>
 </view>

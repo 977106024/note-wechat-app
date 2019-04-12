@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    upImage:'../../static/images/identity2.png',//图片
-    isPhoto:true,
+    upImage: '../../static/images/identity2.png',//图片
+    isPhoto: true,
   },
 
   /**
@@ -16,36 +16,45 @@ Page({
 
   },
   //点击选择图片
-  previewImg(){
-    var _this = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: [ 'compressed'],
-      sourceType: ['camera'],
-      success:res => {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths)
-        _this.setData({
-          upImage: tempFilePaths[0],
-          isPhoto: false,
-        })
-        let token = wx.getStorageSync('TOKEN')
-        const uploadTask = wx.uploadFile({
-          url: 'http://192.168.1.113:2333/weChatApp/upImgFile',
-          filePath: tempFilePaths[0],
-          name: 'imgfile',
-          header: {
-            "x-access-token": token
-          },
-          success: function (res) {
-            console.log(res.data)
-          }
-        })
-        // uploadTask.abort()
+  previewImg() {
+    let token = wx.getStorageSync('TOKEN')
+    if(token){
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        sourceType: ['camera'],
+        success: res => {
+          // tempFilePath可以作为img标签的src属性显示图片
+          const tempFilePaths = res.tempFilePaths
 
-        this.upImg(tempFilePaths[0])
+          this.setData({
+            upImage: tempFilePaths[0],
+            isPhoto: false,
+          })
 
+          this.upImg(tempFilePaths[0])
+
+        }
+      })
+    }else{
+      //登陆
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+  },
+
+  upImg(imgFile) {
+    let token = wx.getStorageSync('TOKEN')
+    const uploadTask = wx.uploadFile({
+      url: 'http://192.168.1.113:2333/weChatApp/upImgFile',
+      filePath: imgFile,
+      name: 'imgfile',
+      header: {
+        "x-access-token": token
+      },
+      success: function (res) {
+        console.log(res.data)
       }
     })
   },
