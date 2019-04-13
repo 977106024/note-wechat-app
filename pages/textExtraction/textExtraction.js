@@ -8,6 +8,7 @@ Page({
     upImage: '../../static/images/identity2.png',//图片
     isPhoto: true,
     allInfo:[],//提取信息
+    isLoad:false,//加载转圈圈
   },
 
   /**
@@ -31,10 +32,11 @@ Page({
           this.setData({
             upImage: tempFilePaths[0],
             isPhoto: false,
+            allInfo:[],
           })
 
           this.upImg(tempFilePaths[0])
-
+         
         }
       })
     }else{
@@ -46,6 +48,9 @@ Page({
   },
 
   upImg(imgFile) {
+    this.setData({
+      isLoad: true,
+    })
     let token = wx.getStorageSync('TOKEN')
     let _this = this
     const uploadTask = wx.uploadFile({
@@ -58,13 +63,19 @@ Page({
       success: function (res) {
         let $res = JSON.parse(res.data)
         // console.log($res.data)
-        _this.setData({
-          allInfo:$res.data,
-        })
-        if($res.data.length == 0){
+        if($res.code ==200){
+          _this.setData({
+            isLoad: false,
+            allInfo: $res.data,
+          })
+        }
+        if($res.data.length == 0|| $res.code ==-200){
           wx.showToast({
             title: '没有识别出文字哦！',
-            icon: 'none'
+            icon: 'none',
+          })
+          _this.setData({
+            isLoad: false,
           })
         }
       }

@@ -68,3 +68,14 @@
   padding-left: 20rpx;
   line-height: 48rpx;
 }
+/* loading */
+.textExtraction van-loading{
+  position: fixed !important;
+  right: 50% !important;
+  bottom: 20% !important;
+}
+.textExtraction van-loading .van-loading{
+  width: 40rpx !important;
+  height: 40rpx !important;
+}
+/* loading结束 */
