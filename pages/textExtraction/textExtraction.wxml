@@ -10,8 +10,11 @@
   <button class='upBtn' bindtap='previewImg'>上传图片提取文字</button>
   <view class='wordInfo'>
     <view class='title'>
-      <image src='../../static/images/title.png'></image>
-      <text>提取结果</text>
+      <view>
+        <image src='../../static/images/title.png'></image>
+        <text>提取结果</text>
+      </view>
+      <text class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</text>
     </view>
     <view wx:for="{{allInfo}}" wx:for-index="index" wx:for-item="item" wx:key='index' class='words'>
       <view>{{item.words}}</view>

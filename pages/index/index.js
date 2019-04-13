@@ -113,6 +113,9 @@ Page({
       console.log("error", res);
     });
   },
+  searchAll(){
+    console.log("猫猫")
+  },
 
   // 松开按钮的时候触发-发送录音
   sendrecorderHandel() {

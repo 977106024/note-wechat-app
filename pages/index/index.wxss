@@ -57,6 +57,7 @@ page{
   border: none;
   padding: 0;
   position: absolute;
+  z-index: 9;
   width: 60rpx;
   height: 60rpx;
   right: 50rpx;
