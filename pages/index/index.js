@@ -172,7 +172,14 @@ Page({
       text: this.data.searchText
     }
     API.noteSeach(data).then(res => {
-      console.log(res)
+      let $res = res.data
+      this.setData({
+        orderList:$res
+      })
+      // 清空搜索框
+      this.setData({
+        searchText:''
+      })
     })
   },
 
