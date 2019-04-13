@@ -8,4 +8,5 @@
     </view>
   </view>
   <button class='upBtn' bindtap='previewImg'>上传图片提取文字</button>
+  <van-loading type="spinner" />
 </view>
