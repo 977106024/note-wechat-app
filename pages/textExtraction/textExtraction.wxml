@@ -17,4 +17,5 @@
       <view>{{item.words}}</view>
     </view>
   </view>
+  <van-loading type="spinner" />
 </view>
