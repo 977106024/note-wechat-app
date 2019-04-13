@@ -7,6 +7,8 @@ Page({
   data: {
     upImage: '../../static/images/identity2.png',//图片
     isPhoto: true,
+    allInfo:[],//提取信息
+    isLoad:false,//加载转圈圈
   },
 
   /**
@@ -30,10 +32,11 @@ Page({
           this.setData({
             upImage: tempFilePaths[0],
             isPhoto: false,
+            allInfo:[],
           })
 
           this.upImg(tempFilePaths[0])
-
+         
         }
       })
     }else{
@@ -45,7 +48,11 @@ Page({
   },
 
   upImg(imgFile) {
+    this.setData({
+      isLoad: true,
+    })
     let token = wx.getStorageSync('TOKEN')
+    let _this = this
     const uploadTask = wx.uploadFile({
       url: 'http://192.168.1.113:2333/weChatApp/upImgFile',
       filePath: imgFile,
@@ -54,7 +61,23 @@ Page({
         "x-access-token": token
       },
       success: function (res) {
-        console.log(res.data)
+        let $res = JSON.parse(res.data)
+        // console.log($res.data)
+        if($res.code ==200){
+          _this.setData({
+            isLoad: false,
+            allInfo: $res.data,
+          })
+        }
+        if($res.data.length == 0|| $res.code ==-200){
+          wx.showToast({
+            title: '没有识别出文字哦！',
+            icon: 'none',
+          })
+          _this.setData({
+            isLoad: false,
+          })
+        }
       }
     })
   },
