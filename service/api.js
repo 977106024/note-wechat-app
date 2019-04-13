@@ -74,8 +74,12 @@ module.exports = {
   removeNote(data){
     return request('weChatApp/removeNote', 'post', data)
   },
-  // 我的
+  // 我的->便签数量
   noteCount(data) {
     return request('weChatApp/getNoteCount', 'get', data)
+  },
+  // 搜索
+  noteSeach(data) {
+    return request('weChatApp/noteSearch', 'get', data)
   },
 }

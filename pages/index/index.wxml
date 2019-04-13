@@ -9,7 +9,7 @@
   <!-- 搜索 -->
   <view class='searchs'>
     <input placeholder-class="place-holder" placeholder='快速搜索关键字' bindinput="getText" value="{{inputText}}" maxlength="15"  />
-    <button bindtap='save'><image src='{{searchImg}}'></image></button>
+    <button bindtap='search'><image src='{{searchImg}}'></image></button>
   </view>
   <!-- 搜索结束 -->
   <!-- 全部便签内容 -->

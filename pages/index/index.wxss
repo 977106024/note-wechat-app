@@ -66,6 +66,7 @@ page{
   align-items: center;
   justify-content: center;
   border-radius: 40rpx;
+  z-index: 11;
 }
 button::after {
   border: none

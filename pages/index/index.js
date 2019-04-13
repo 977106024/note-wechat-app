@@ -46,12 +46,6 @@ Page({
     wx.authorize({
       scope: 'record'
     });
-    // wx.request({
-    //   url: 'http://localhost:2333/weChatApp/test',
-    //   success(res) {
-    //     console.log(res)
-    //   }
-    // })
   },
   // 首页数据
   list(){
@@ -165,33 +159,17 @@ Page({
     });
     },
 
- // 记点什么---
-  // getText(e) {
-  //   this.setData({
-  //     inputText: e.detail.value
-  //   })
-  // },
-  // save(){
-  //   let text = this.data.inputText
-  //   if(text === ''){
-  //     wx.showToast({
-  //       title: '请输入内容！',
-  //       icon:'none'
-  //     })
-  //     return
-  //   }
-  //   let data = {
-  //     content: text
-  //   }
-  //   API.add(data).then((res)=>{
-  //     console.log(res)
-  //     this.data.list.push(text)
-  //     this.setData({
-  //       list: this.data.list,
-  //       inputText: ''
-  //     })
-  //   })
-  // },
+
+    //搜索
+    search(){
+      console.log('23333')
+      const data = {
+        text:2
+      }
+      API.noteSeach(data).then(res=>{
+        console.log(res)
+      })
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
