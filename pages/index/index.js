@@ -9,11 +9,11 @@ Page({
    */
   data: {
     // list:[],
-    // inputText:'',
-    searchImg:'',
-    scrollHeight:'', //滚动高度
-    msg:'',//语音内容
-    select:1,//话筒动态绑定class
+    searchText: '',
+    searchImg: '',
+    scrollHeight: '', //滚动高度
+    msg: '',//语音内容
+    select: 1,//话筒动态绑定class
     orderList: [{
       createdTime: parseInt(Date.now() / 1000),
       content: "欢迎使用语音便签",
@@ -46,15 +46,9 @@ Page({
     wx.authorize({
       scope: 'record'
     });
-    // wx.request({
-    //   url: 'http://localhost:2333/weChatApp/test',
-    //   success(res) {
-    //     console.log(res)
-    //   }
-    // })
   },
   // 首页数据
-  list(){
+  list() {
     API.noteList().then(res => {
       if (res.code == 200) {
         // res.data.result.map(item => {
@@ -74,7 +68,7 @@ Page({
   },
 
   // 跳转便签详情
-  todetails:function(e){
+  todetails: function (e) {
     let content = e.currentTarget.dataset.content; //带参数
     let time = e.currentTarget.dataset.time;
     let id = e.currentTarget.dataset.id;
@@ -104,7 +98,7 @@ Page({
     }
     // 开始录音
     recorderManager.start(options)
-    recorderManager.onStart(()=>{
+    recorderManager.onStart(() => {
       console.log('recorder start')
     });
 
@@ -113,22 +107,19 @@ Page({
       console.log("error", res);
     });
   },
-  searchAll(){
-    console.log("猫猫")
-  },
 
   // 松开按钮的时候触发-发送录音
   sendrecorderHandel() {
     // 录音按钮改变class
     this.setData({
-      select:1,
+      select: 1,
     })
     // 结束录音
     recorderManager.stop();
     recorderManager.onStop(res => {
       console.log('recorder stop')
       // tempFilePath 是录制的音频文件
-      const { tempFilePath } = res ;
+      const { tempFilePath } = res;
 
       // 获取文件路径-提交到后台-后台发送到百度
       let token = wx.getStorageSync('TOKEN')
@@ -146,13 +137,13 @@ Page({
               let result = $res.data.result
               this.data.orderList.push({
                 _id: result._id,
-                content: result.content, 
-                createdTime:result.createdTime
-                })
+                content: result.content,
+                createdTime: result.createdTime
+              })
               this.setData({
                 orderList: this.data.orderList
               });
-            } else if($res.code === -200) {
+            } else if ($res.code === -200) {
               console.log(res)
               wx.showToast({
                 title: '没有听清！',
@@ -166,41 +157,37 @@ Page({
         });
       }
     });
-    },
+  },
 
- // 记点什么---
-  // getText(e) {
-  //   this.setData({
-  //     inputText: e.detail.value
-  //   })
-  // },
-  // save(){
-  //   let text = this.data.inputText
-  //   if(text === ''){
-  //     wx.showToast({
-  //       title: '请输入内容！',
-  //       icon:'none'
-  //     })
-  //     return
-  //   }
-  //   let data = {
-  //     content: text
-  //   }
-  //   API.add(data).then((res)=>{
-  //     console.log(res)
-  //     this.data.list.push(text)
-  //     this.setData({
-  //       list: this.data.list,
-  //       inputText: ''
-  //     })
-  //   })
-  // },
+  //input
+  bindKeyInput(e) {
+    this.setData({
+      searchText: e.detail.value
+    })
+  },
+
+  //搜索
+  search(e) {
+    const data = {
+      text: this.data.searchText
+    }
+    API.noteSeach(data).then(res => {
+      let $res = res.data
+      this.setData({
+        orderList:$res
+      })
+      // 清空搜索框
+      this.setData({
+        searchText:''
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -215,35 +202,35 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })
 

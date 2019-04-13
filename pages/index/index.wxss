@@ -57,7 +57,6 @@ page{
   border: none;
   padding: 0;
   position: absolute;
-  z-index: 9;
   width: 60rpx;
   height: 60rpx;
   right: 50rpx;
@@ -67,6 +66,7 @@ page{
   align-items: center;
   justify-content: center;
   border-radius: 40rpx;
+  z-index: 11;
 }
 button::after {
   border: none
