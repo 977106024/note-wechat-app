@@ -1,4 +1,6 @@
 #login{
   display: flex;
+  flex-direction: column;
+  align-items: center;
   padding:450rpx 0;
 }

@@ -1,4 +1,5 @@
 <!-- 登录 -->
 <view id='login'>
+  <van-icon name="manager" size='50px' color='#e98d3f' />
   <button bindtap='login' type='primary'>一键登录</button>
 </view>

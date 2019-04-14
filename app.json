@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/index/noteDetail/noteDetail",
     "pages/mine/mine",
-    "pages/login/login",
-    "pages/textExtraction/textExtraction"
+    "pages/textExtraction/textExtraction",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
