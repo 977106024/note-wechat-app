@@ -56,7 +56,7 @@ Page({
     let token = wx.getStorageSync('TOKEN')
     let _this = this
     const uploadTask = wx.uploadFile({
-      url: 'http://192.168.1.113:2333/weChatApp/upImgFile',
+      url: 'http://localhost:2333/weChatApp/upImgFile',
       filePath: imgFile,
       name: 'imgfile',
       header: {
@@ -81,7 +81,7 @@ Page({
         })
         console.log(_this.data.allInfoString)
         }
-        if($res.data.length == 0|| $res.code ==-200){
+        if($res.code ==-200){
           wx.showToast({
             title: '没有识别出文字哦！',
             icon: 'none',
