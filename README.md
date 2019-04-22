@@ -8,7 +8,7 @@
 
 
 服务端代码：https://github.com/977106024/weChatApp-node-express-mongodb  
-小程序mpvue框架重构代码：
+mpvue框架重构代码：
 https://github.com/977106024/note-mpvue-weChatApp  
 
 author bohong xiaoyue
