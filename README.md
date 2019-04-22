@@ -7,7 +7,8 @@
 <img src="http://47.101.181.98/0.png" height="250px" width="150px">  <img src="http://47.101.181.98/1.png" height="250px" width="150px">
 
 
-服务端代码：https://github.com/977106024/weChatApp-node-express-mongodb
+服务端代码：https://github.com/977106024/weChatApp-node-express-mongodb  
 小程序mpvue框架重构代码：
-https://github.com/977106024/note-mpvue-weChatApp
+https://github.com/977106024/note-mpvue-weChatApp  
+
 author bohong xiaoyue
