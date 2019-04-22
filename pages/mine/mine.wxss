@@ -1,56 +1,66 @@
-.mine{
-  width: 750rpx;
+.mine {
+  width: 100%;
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  padding-left: 40rpx;
   box-sizing: border-box;
+  padding: 0 5px;
 }
-.mine .name{
+.mine>.user{
+  text-align: center;
+}
+.mine .name {
   width: 100%;
   font-size: 36rpx;
   margin-top: 20rpx;
-  padding-left: 20rpx;
   box-sizing: border-box;
   color: #333;
 }
 
-.mine .avatar{
-  overflow:hidden; 
+.mine .avatar {
+  overflow: hidden;
   display: block;
   width: 140rpx;
   height: 140rpx;
   margin-top: 20rpx;
   border-radius: 50%;
+}
 
-}
-.null{
+.content {
   width: 100%;
-  height: 40rpx;
-  margin-top: 30rpx;
-  background: #fdf6ec;
-}
-.content{
-  width: 100%;
-  padding:0 40rpx;
+  padding: 0 40rpx;
+  margin-top: 15px;
   box-sizing: border-box;
   color: #999;
-  
-}
-.content .list{
+  border-top: 1px solid #ccc;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
 }
-.content image{
+
+.content .list {
+  width: 50%;
+}
+
+.content .list::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 90%;
+  border-bottom: 1px solid #ccc;
+}
+
+.content image {
   width: 50rpx;
   height: 50rpx;
   margin-right: 20rpx;
 }
-.content .list text{
-  display: block;
-  width: 100%;
+
+.content .list text {
+  display: inline-block;
   font-size: 32rpx;
-  padding: 30rpx 0;
+  padding: 30rpx 0 15rpx 0;
   box-sizing: border-box;
-  border-bottom: 4rpx solid #fdf6ec;
+  padding-right: 135rpx;
 }

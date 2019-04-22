@@ -2,17 +2,17 @@
 <view class='textExtraction'>
   <view class='upload'>
     <!-- <image src='../../static/images/identity2.png'></image> -->
-    <image src='{{upImage}}'></image>
+    <!-- <image src='{{upImage}}'></image> -->
     <view class='photo' wx:if="{{isPhoto}}">
-      <image src='../../static/images/photograph.png'></image>
+      <image src='../../static/images/camera.png'></image>
     </view>
   </view>
-  <button class='upBtn' bindtap='previewImg'>上传图片提取文字</button>
+  <button class='upBtn' bindtap='previewImg'>上传图片</button>
   <view class='wordInfo'>
     <view class='title'>
       <view>
-        <image src='../../static/images/title.png'></image>
-        <text>提取结果</text>
+        <image src='../../static/images/start.png'></image>
+        <text>识别结果</text>
       </view>
       <text class='copy' bindtap='copyText' data-text="{{allInfoString}}">复制文本</text>
     </view>

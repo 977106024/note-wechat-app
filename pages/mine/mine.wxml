@@ -1,12 +1,21 @@
 <view class='mine'>
+<view class="user">
   <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
   <open-data type="userAvatarUrl" class="avatar"></open-data>
   <open-data type="userNickName" class="name"></open-data>
 </view>
-<view class='null'></view>
-<view class='content'>
+  <view class='content'>
   <view class='list'>
-    <image src='../../static/images/mineNote.png'></image>
-    <text>记事本 ({{result}})</text>
+    <!-- <image src='../../static/images/mineNote.png'></image> -->
+    <text>记事</text>{{result}}
   </view>
+  <view class='list'>
+    <!-- <image src='../../static/images/mineNote.png'></image> -->
+    <text>类别</text>x
+  </view>
+  <view class='list'>
+    <!-- <image src='../../static/images/mineNote.png'></image> -->
+    <text>代办</text>x
+  </view>
+</view>
 </view>

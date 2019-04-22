@@ -92,19 +92,20 @@ button::after {
 }
 #content .allNote{
   /* width: 98%; */
-  background: #edc274;
-  padding-left: 60rpx;
+  /* background: #edc274; */
+  /* padding-left: 60rpx; */
   box-sizing: border-box;
   margin-top: 20rpx;
   margin-bottom: 40rpx;
-  box-shadow: 0rpx 6rpx 8rpx #edc274;
+  /* box-shadow: 0rpx 6rpx 8rpx #edc274; */
   border-radius: 16rpx;
+  border: 1px solid #ccc;
 }
 #content .allNote .time{
   position: relative;
    font-size: 30rpx;
-  color: #999;
-  background: #fdf6ec;
+  /* color: #999; */
+  /* background: #fdf6ec; */
   padding: 8rpx 0 8rpx 40rpx;
   box-sizing: border-box;
   border-bottom: 2rpx solid #e5e0d6;
@@ -114,8 +115,8 @@ button::after {
 #content .allNote .myContent{
   /* width: 100%; */
   font-size: 34rpx;
-  color: rgb(106, 87, 73);
-  background: #fdf6ec;
+  /* color: rgb(106, 87, 73); */
+  /* background: #fdf6ec; */
   padding: 10rpx 40rpx;
   box-sizing: border-box;
   border-radius: 0 0 16rpx 0;
@@ -129,16 +130,20 @@ button::after {
 /* 内容列表结束 */
 
 #container .speak{
-  width: 100rpx;
-  height: 100rpx;
+  color:rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  width: 120rpx;
+  height: 120rpx;
   position: fixed;
-  right: 80rpx;
-  bottom: 20rpx;
-  background: rgb(221, 105, 32);
+  left: 50%;
+  transform:translateX(-50%);
+  bottom: 80rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  /* border: 1px solid #ccc; */
+  background: #f0f0f0;
 }
 #container .borders{
   width: 100rpx;
@@ -146,12 +151,12 @@ button::after {
   position: fixed;
   right: 64rpx;
   bottom: 4rpx;
-  background: rgb(221, 105, 32);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 16rpx solid rgb(249, 179, 130);
+  border: 1rpx solid#ccc;
 }
 .speak image{
   width: 60rpx;

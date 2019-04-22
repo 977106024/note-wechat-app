@@ -33,6 +33,7 @@
   </view>
   <!-- 全部便签内容结束 -->
   <view class='speak' bindtouchstart='startrecorderHandel' bindtouchend="sendrecorderHandel" class="{{select == 0 ? 'borders':'speak'}}">
-    <image src='../../static/images/speak.png'></image>
+    <!-- <image src='../../static/images/speak.png'></image> -->
+    录
   </view>
 </view>

@@ -1,21 +1,20 @@
 {
   "pages": [
+    "pages/mine/mine",
     "pages/index/index",
     "pages/index/noteDetail/noteDetail",
-    "pages/mine/mine",
     "pages/textExtraction/textExtraction",
     "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#e98d3f",
     "navigationBarTitleText": "记事本",
     "navigationBarTextStyle": "white",
     "backgroundColor": ""
   },
   "tabBar": {
     "color": "#999",
-    "backgroundColor": "#fdf6ec",
+    "backgroundColor": "#fafafa",
     "selectedColor": "#e98d3f",
     "borderStyle": "white",
     "position": "bottom",
