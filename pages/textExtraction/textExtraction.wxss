@@ -9,7 +9,7 @@
   height: 400rpx;
   position: relative;
   border: 1px solid #ccc;
-
+  border-radius: 24rpx;
 }
 .textExtraction image{
   width: 100%;

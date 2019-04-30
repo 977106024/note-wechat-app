@@ -2,7 +2,7 @@
 <view class='textExtraction'>
   <view class='upload'>
     <!-- <image src='../../static/images/identity2.png'></image> -->
-    <!-- <image src='{{upImage}}'></image> -->
+    <image src='{{upImage}}' wx:if="{{!isPhoto}}"></image>
     <view class='photo' wx:if="{{isPhoto}}">
       <image src='../../static/images/camera.png'></image>
     </view>
