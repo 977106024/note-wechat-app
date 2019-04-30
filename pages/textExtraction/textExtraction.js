@@ -56,7 +56,7 @@ Page({
     let token = wx.getStorageSync('TOKEN')
     let _this = this
     const uploadTask = wx.uploadFile({
-      url: 'http://localhost:2333/weChatApp/upImgFile',
+      url: 'https://api.xuewuzhijing.top/weChatApp/upImgFile',
       filePath: imgFile,
       name: 'imgfile',
       header: {

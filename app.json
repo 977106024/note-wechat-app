@@ -25,7 +25,6 @@
         "iconPath": "static/images/note3.png",
         "selectedIconPath": "static/images/note.png"
       },
-     
       {
         "pagePath": "pages/textExtraction/textExtraction",
         "iconPath": "static/images/shibie1.png",
@@ -39,5 +38,6 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

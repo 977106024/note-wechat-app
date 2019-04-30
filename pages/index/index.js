@@ -32,17 +32,17 @@ Page({
    */
   onLoad: function (options) {
     // svg图片转换
-    const fileManager = wx.getFileSystemManager();
-    wx.downloadFile({
-      url:
-        'http://ponshr88o.bkt.clouddn.com/search.svg',
-      success: ({ tempFilePath }) => {
-        let fileData = fileManager.readFileSync(tempFilePath, 'base64');
-        this.setData({
-          searchImg: `data:image/svg+xml;base64,${fileData}`
-        });
-      }
-    });
+    // const fileManager = wx.getFileSystemManager();
+    // wx.downloadFile({
+    //   url:
+    //     'http://ponshr88o.bkt.clouddn.com/search.svg',
+    //   success: ({ tempFilePath }) => {
+    //     let fileData = fileManager.readFileSync(tempFilePath, 'base64');
+    //     this.setData({
+    //       searchImg: `data:image/svg+xml;base64,${fileData}`
+    //     });
+    //   }
+    // });
     wx.authorize({
       scope: 'record'
     });
@@ -125,11 +125,11 @@ Page({
       let token = wx.getStorageSync('TOKEN')
       if (token) {
         wx.uploadFile({
-          url: "http://localhost:2333/weChatApp/uploadFile",
+          url: "https://api.xuewuzhijing.top/weChatApp/uploadFile",
           filePath: tempFilePath,
           name: "recorder",
           header: {
-            "x-access-token": token
+            "x-access-token": token, 
           },
           success: res => {
             let $res = JSON.parse(res.data)

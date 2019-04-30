@@ -149,8 +149,9 @@ button::after {
   width: 100rpx;
   height: 100rpx;
   position: fixed;
-  right: 64rpx;
-  bottom: 4rpx;
+  left: 50%;
+  transform:translateX(-50%);
+  bottom: 80rpx;
   background: #fff;
   display: flex;
   align-items: center;
