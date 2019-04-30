@@ -31,7 +31,7 @@ page{
   padding: 30rpx;
   box-sizing: border-box;
   position: fixed;
-  background: #ffffff;
+  background: #fff;
   top: 0rpx;
   /* top: 98rpx; */
   /* display: flex; */

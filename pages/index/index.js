@@ -32,17 +32,17 @@ Page({
    */
   onLoad: function (options) {
     // svg图片转换
-    // const fileManager = wx.getFileSystemManager();
-    // wx.downloadFile({
-    //   url:
-    //     'http://ponshr88o.bkt.clouddn.com/search.svg',
-    //   success: ({ tempFilePath }) => {
-    //     let fileData = fileManager.readFileSync(tempFilePath, 'base64');
-    //     this.setData({
-    //       searchImg: `data:image/svg+xml;base64,${fileData}`
-    //     });
-    //   }
-    // });
+    const fileManager = wx.getFileSystemManager();
+    wx.downloadFile({
+      url:
+        'http://img.xuewuzhijing.top/search.svg',
+      success: ({ tempFilePath }) => {
+        let fileData = fileManager.readFileSync(tempFilePath, 'base64');
+        this.setData({
+          searchImg: `data:image/svg+xml;base64,${fileData}`
+        });
+      }
+    });
     wx.authorize({
       scope: 'record'
     });
