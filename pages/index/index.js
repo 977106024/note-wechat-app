@@ -76,6 +76,7 @@ Page({
       url: 'noteDetail/noteDetail?time=' + time + '&content=' + content + '&id=' + id,
     })
   },
+  
   //语音---
   // 按下按钮的时候触发
   startrecorderHandel() {
@@ -135,7 +136,7 @@ Page({
             let $res = JSON.parse(res.data)
             if ($res.code == 200) {
               let result = $res.data.result
-              this.data.orderList.push({
+              this.data.orderList.unshift({
                 _id: result._id,
                 content: result.content,
                 createdTime: result.createdTime

@@ -131,9 +131,9 @@ button::after {
 
 #container .speak{
   color:rgba(0, 0, 0, 0.6);
-  font-size: 20px;
-  width: 120rpx;
-  height: 120rpx;
+  font-size: 23px;
+  width: 150rpx;
+  height: 150rpx;
   position: fixed;
   left: 50%;
   transform:translateX(-50%);
@@ -146,8 +146,9 @@ button::after {
   background: #f0f0f0;
 }
 #container .borders{
-  width: 100rpx;
-  height: 100rpx;
+  font-size: 22px;
+  width: 130rpx;
+  height: 130rpx;
   position: fixed;
   left: 50%;
   transform:translateX(-50%);
