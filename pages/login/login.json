@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "登录",
   "usingComponents": {
-    "van-icon": "../../ui/vant-weapp/icon/index"
+    "van-icon": "../../ui/vant-weapp/lib/icon/index"
   }
 }

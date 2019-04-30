@@ -78,33 +78,31 @@ Page({
       })
     }
   },
-  // 点击删除note
-  deleteNote(){
-    this.setData({
-      hidden:false,
-      disabled:true,
-    })
-  },
-  // 取消删除
-  cancel(){
-    this.setData({
-      hidden: true,
-      disabled: false,
-    })
-  },
-  // 确定删除
-  confirm(){
-    let curentId = this.data.id
-    API.removeNote({
-      id: curentId,
-    }).then(res => {
-      if (res.code == 200) {
-        // 跳回首页
-        wx.navigateBack({
-          url: '../index/index',
-        })
+  //删除
+  openConfirm: function () {
+    wx.showModal({
+      title: '删除',
+      content: '是否要删除？',
+      confirmText: "确认",
+      cancelText: "取消",
+      success: res=> {
+        if (res.confirm) {
+          let curentId = this.data.id
+          API.removeNote({
+            id: curentId,
+          }).then(res => {
+            if (res.code == 200) {
+              // 跳回首页
+              wx.navigateBack({
+                url: '../index/index',
+              })
+            }
+          })
+        } else {
+          console.log('用户点击辅助操作')
+        }
       }
-    })
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

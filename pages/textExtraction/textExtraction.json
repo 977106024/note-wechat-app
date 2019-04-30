@@ -1,5 +1,6 @@
 {
+  "navigationBarTitleText": "文本识别",
   "usingComponents": {
-    "van-loading": "../../ui/vant-weapp/loading/index"
+    "van-loading": "/ui/vant-weapp/lib/loading/index"
   }
 }
