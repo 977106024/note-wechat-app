@@ -59,6 +59,7 @@ Page({
         //     // TIME.formatTime(item.createdTime)
         //   })
         // })
+        res.data.result.reverse()
         this.setData({
           orderList: res.data.result,
         });
