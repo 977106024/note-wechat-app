@@ -35,7 +35,7 @@ Page({
     const fileManager = wx.getFileSystemManager();
     wx.downloadFile({
       url:
-        'http://img.xuewuzhijing.top/search.svg',
+        'https://img.xuewuzhijing.top/search.svg',
       success: ({ tempFilePath }) => {
         let fileData = fileManager.readFileSync(tempFilePath, 'base64');
         this.setData({
