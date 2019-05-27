@@ -6,8 +6,12 @@
 > 2.图片识别页面 采用百度AI文字识别 把图片中的文字提取出来  
 > 3.我的页面 涉及小程序登录 服务端登录生成token等   
 
-<img src="http://47.101.181.98/9.png" height="250px" width="150px">  <img src="http://47.101.181.98/8.png" height="250px" width="150px">
-<img src="http://47.101.181.98/0.png" height="250px" width="150px">
+### 项目效果图
+<img src="https://img.xuewuzhijing.top/weChatApp/1.png" height="250px" width="150px">  <img src="https://img.xuewuzhijing.top/weChatApp/2.png" height="250px" width="150px">
+<img src="https://img.xuewuzhijing.top/weChatApp/3.png" height="250px" width="150px">
+
+### 小程序二维码
+![二维码](https://img.xuewuzhijing.top/weChatApp/qr.jpg)
 
 ### 后台 & 框架
 服务端代码：https://github.com/977106024/weChatApp-node-express-mongodb  
