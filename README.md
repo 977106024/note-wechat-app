@@ -13,6 +13,15 @@
 ### 小程序二维码
 ![二维码](https://img.xuewuzhijing.top/weChatApp/qr.jpg)
 
+### 项目布局
+```
+|-- pages                     // 页面
+|-- service                   // 接口
+|-- static                    // 静态资源
+|-- ui                        // ui框架 weui
+|-- utils                     // 公共文件
+```
+
 ### 后台 & 框架
 服务端代码：https://github.com/977106024/weChatApp-node-express-mongodb  
 mpvue框架重构代码：
